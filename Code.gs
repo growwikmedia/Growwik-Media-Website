@@ -3,12 +3,13 @@ function doGet(e) {
   var page = e.parameter.page || 'index';
 
   if (page == 'index') {
-    return HtmlService.createHtmlOutputFromFile('index');
+    // Load index.html from the raw GitHub link
+    return HtmlService.createHtmlOutputFromUrl('https://raw.githubusercontent.com/your-username/your-repository/main/intex.html');
   } else if (page == 'Case-Study') {
-    return HtmlService.createHtmlOutputFromFile('case-studies');
+    // Load case-studies.html from the raw GitHub link
+    return HtmlService.createHtmlOutputFromUrl('https://raw.githubusercontent.com/your-username/your-repository/main/case-studies.html');
   } else {
     // If an unknown page is requested, load the main page as fallback
-    return HtmlService.createHtmlOutputFromFile('index');
+    return HtmlService.createHtmlOutputFromUrl('https://raw.githubusercontent.com/your-username/your-repository/main/intex.html');
   }
 }
-
