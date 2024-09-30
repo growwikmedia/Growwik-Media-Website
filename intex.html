@@ -1,0 +1,1850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Website</title>
+    <style>
+        body {
+            margin: 0;
+            overflow-y: auto;
+            background: linear-gradient(135deg, #ffffff, #a8e6cf); /* Background extending from slogan */
+            cursor: pointer;
+        }
+
+        /* Slimmer Navigation bar styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 15px; /* Reduced padding to make it slimmer */
+            background-color: white;
+            border-bottom: 1px solid #ddd;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000; /* Keeps the navbar on top */
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-button {
+            text-decoration: none;
+            color: #333;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .nav-button:hover {
+            transform: scale(1.1);
+            color: lightgreen;
+        }
+
+        /* Fix the alignment of "Member of ASCI" */
+        .nav-right {
+            margin-right: 30px;
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Logo styling */
+        .navbar img {
+            width: 80px; /* Reduced size of the logo to fit the slimmer navbar */
+        }
+
+        /* Fullscreen Slogan Section */
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Fullscreen height */
+            text-align: center;
+            position: relative; /* To ensure circle animation works */
+            z-index: 1; /* Keeps slogan above the circles */
+        }
+
+        .slogan {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-top: 0; /* Removes the extra margin */
+            opacity: 0;
+            transform: translateY(50px);
+            animation: slideIn 1s forwards;
+        }
+
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Moving circles for background animation */
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: move 10s linear infinite;
+            z-index: 0; /* Keeps circles behind the content */
+        }
+
+        @keyframes move {
+            0% {
+                transform: translateY(0) translateX(0);
+            }
+            50% {
+                transform: translateY(-30px) translateX(30px);
+            }
+            100% {
+                transform: translateY(0) translateX(0);
+            }
+        }
+
+        .circle1 {
+            background: rgba(168, 230, 207, 0.5);
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            left: 10%;
+            animation-duration: 8s;
+        }
+
+        .circle2 {
+            background: rgba(255, 183, 77, 0.5);
+            width: 150px;
+            height: 150px;
+            top: 50%;
+            left: 70%;
+            animation-duration: 12s;
+        }
+
+        .circle3 {
+            background: rgba(77, 182, 255, 0.5);
+            width: 120px;
+            height: 120px;
+            top: 70%;
+            left: 30%;
+            animation-duration: 10s;
+        }
+
+        /* Recent Projects Section */
+        .recent-projects {
+            padding: 50px 20px; /* Keep some padding to avoid tight fit */
+            background: none; /* Remove any extra background */
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Fixed Navigation Bar -->
+    <div class="navbar">
+        <img src="https://i.imgur.com/lGkc363.png" alt="Logo">
+        <div class="nav-buttons">
+            <a class="nav-button" href="#home">Home</a>
+            <a class="nav-button" href="#about-us">About Us</a>
+            <a class="nav-button" href="#services">Our Services</a>
+            <a class="nav-button" href="#Contact-Us">Contact Us</a>
+            <a class="nav-button" href="#">Case Studies</a>
+        </div>
+        <div class="nav-right">
+            Member of ASCI
+        </div>
+    </div>
+
+    <!-- Fullscreen Slogan Section -->
+    <div class="content" id="home">
+        <div class="slogan">Cultivating Connections,<br>Growing Success.</div>
+    </div>
+
+    <!-- Circle Animations for Background -->
+    <div class="circle circle1"></div>
+    <div class="circle circle2"></div>
+    <div class="circle circle3"></div>
+
+    <!-- Recent Projects Section -->
+    <div class="recent-projects">
+        <!-- Add your existing Recent Projects code here -->
+    </div>
+
+    <script>
+        function animateCircles() {
+            const circles = document.querySelectorAll('.circle');
+            circles.forEach(circle => {
+                circle.style.animationPlayState = 'running';
+            });
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+    <!-- Latest Work Section Title -->
+    <div class="latest-work-title"></div>
+
+    <!-- Latest Work Section -->
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Latest Work with Website Background</title>
+    <style>
+        /* CSS for the "" section */
+        .latest-work {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: 20px 0;
+            background: linear-gradient(135deg, #ffffff, #a8e6cf); /* Website's gradient background */
+            text-align: center;
+        }
+
+        .box-container {
+            display: flex;
+            justify-content: start;
+            gap: 20px; /* Maintain gap between boxes */
+            animation: slideRightLeft 16s ease-in-out infinite;
+        }
+
+        .box {
+            width: 250px;
+            height: 400px;
+            border-radius: 15px; /* Rounded corners */
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            overflow: hidden;
+            flex-shrink: 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow added */
+        }
+
+        /* Hover effect for box (on mouse hover, box gets larger) */
+        .box:hover {
+            transform: scale(1.1); /* Box will enlarge slightly */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+        }
+
+        .box video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        /* Sliding Animation: Slide to right and then reverse back */
+        @keyframes slideRightLeft {
+            0% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(calc(-270px * 5)); /* Slide for 5 boxes */
+            }
+            100% {
+                transform: translateX(0); /* Reverse back to original position */
+            }
+        }
+    </style>
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /* Background and container styling */
+      .reel-container {
+          overflow: hidden;
+          width: 100%;
+          position: relative;
+          margin: 00 auto;
+          height: 500px;
+          display: flex;
+          justify-content: flex-start;
+          padding-right: 150px;
+          align-items: center;
+          background: linear-gradient(135deg, #ffffff, #a8e6cf); /* Background gradient */
+      }
+
+      .reel-track {
+          display: flex;
+          transform: translateX(0);
+          transition: transform 0.5s ease-in-out;
+      }
+
+      .reel-box {
+          min-width: 300px;
+          height: 450px;
+          background-color: linear-gradient(135deg, #ffffff, #f3f3f3)
+          margin: 0 15px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 20px;
+          overflow: hidden;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          text-decoration: none;
+      }
+
+      .reel-box img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 20px;
+      }
+
+      /* Title Styling */
+      .recent-projects-title {
+          font-size: 32px;
+          font-weight: bold;
+          font-family: 'Poppins', sans-serif;
+          margin-bottom: 40px; /* Gap added between title and reel section */
+          text-align: center;
+      }
+
+      /* Green for "Recent Projects", Black for the rest */
+      .recent-projects-title span {
+          color: #4CAF50; /* Green color */
+      }
+
+      .recent-projects-title .black-text {
+          color: black;
+      }
+
+      /* Mobile Responsiveness */
+      @media (max-width: 768px) {
+          .reel-container {
+              height: 300px; /* Adjust height for smaller screens */
+              padding-right: 50px; /* Reduce right padding for mobile */
+          }
+
+          .reel-box {
+              min-width: 200px; /* Smaller box size for mobile */
+              height: 300px; /* Smaller height for mobile */
+          }
+      }
+    </style>
+  </head>
+  <!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /* Background and container styling */
+      .reel-container {
+          overflow: hidden;
+          width: 100%;
+          position: relative;
+          margin: 0 auto;
+          height: 500px;
+          display: flex;
+          justify-content: flex-start;
+          padding-right: 150px;
+          align-items: center;
+          background: linear-gradient(135deg, #ffffff, #f3f3f3); /* Matching background to Testimonials */
+      }
+
+      .reel-track {
+          display: flex;
+          transform: translateX(0);
+          transition: transform 0.5s ease-in-out;
+      }
+
+      .reel-box {
+          min-width: 300px;
+          height: 450px;
+          background-color: #f3f3f3;
+          margin: 0 15px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 20px;
+          overflow: hidden;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          text-decoration: none;
+      }
+
+      .reel-box img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 20px;
+      }
+
+      /* Title Styling */
+      .recent-projects-title {
+          font-size: 32px;
+          font-weight: bold;
+          font-family: 'Poppins', sans-serif;
+          margin-bottom: 0px;
+          text-align: center;
+          background: linear-gradient(135deg, #ffffff, #e6f7f9); /* Matching background to Testimonials */
+          padding: 40px 0;
+      }
+
+      /* Green for "Under Our Proficiency", Black for the rest */
+      .recent-projects-title .black-text {
+          color: black;
+      }
+
+      .recent-projects-title .green-text {
+          color: #4CAF50; /* Green color for "Under Our Proficiency" */
+      }
+
+      /* Mobile Responsiveness */
+      @media (max-width: 768px) {
+          .reel-container {
+              height: 300px; /* Adjust height for smaller screens */
+              padding-right: 50px; /* Reduce right padding for mobile */
+          }
+
+          .reel-box {
+              min-width: 200px; /* Smaller box size for mobile */
+              height: 300px; /* Smaller height for mobile */
+          }
+      }
+    </style>
+  </head>
+  
+  <body>
+    <!-- Section Title -->
+    <div class="recent-projects-title">
+      <span class="black-text">Recent Projects</span> <span class="green-text">Under Our Proficiency</span>
+    </div>
+    
+    <div class="reel-container">
+        <div class="reel-track">
+            <a href="case-study-boost.html" class="reel-box">
+                <img src="https://drive.google.com/uc?export=download&id=1XsxwPS_D6B8UJQOA4NgGovL4plfiJmPr
+" alt="Boost" />
+            </a>
+            <a href="case-study-sports.html" class="reel-box">
+                <img src="https://drive.google.com/uc?export=download&id=1XsxwPS_D6B8UJQOA4NgGovL4plfiJmPr
+" alt="Sports" />
+            </a>
+            <a href="case-study-triller.html" class="reel-box">
+                <img src="triller.jpg" alt="Triller" />
+            </a>
+            <a href="case-study-glance.html" class="reel-box">
+                <img src="glance.jpg" alt="Glance" />
+            </a>
+            <a href="case-study-box5.html" class="reel-box">
+                <img src="box5.jpg" alt="Box 5" />
+            </a>
+            <a href="case-study-box6.html" class="reel-box">
+                <img src="box6.jpg" alt="Box 6" />
+            </a>
+            <a href="case-study-box7.html" class="reel-box">
+                <img src="box7.jpg" alt="Box 7" />
+            </a>
+            <a href="case-study-box8.html" class="reel-box">
+                <img src="box8.jpg" alt="Box 8" />
+            </a>
+            <a href="case-study-box9.html" class="reel-box">
+                <img src="box9.jpg" alt="Box 9" />
+            </a>
+            <a href="case-study-box10.html" class="reel-box">
+                <img src="box10.jpg" alt="Box 10" />
+            </a>
+        </div>
+    </div>
+    
+    <script>
+      const track = document.querySelector('.reel-track');
+      let isDragging = false;
+      let startPos = 0;
+      let currentTranslate = 0;
+      let prevTranslate = 0;
+
+      function autoSlide() {
+          setInterval(() => {
+              currentTranslate -= 320; // Slide from right to left
+              track.style.transform = `translateX(${currentTranslate}px)`;
+              
+              // If the track reaches the end, reset the position
+              if (Math.abs(currentTranslate) >= track.scrollWidth - window.innerWidth + 150) {
+                  currentTranslate = 0; // Reset back to start, keeping left empty
+              }
+          }, 3000); // Auto slide every 3 seconds
+      }
+
+      track.addEventListener('mousedown', (e) => {
+          isDragging = true;
+          startPos = e.pageX;
+          track.style.transition = 'none';
+      });
+
+      track.addEventListener('mousemove', (e) => {
+          if (!isDragging) return;
+          const currentPosition = e.pageX;
+          const movement = currentPosition - startPos;
+          currentTranslate = prevTranslate + movement;
+          track.style.transform = `translateX(${currentTranslate}px)`;
+      });
+
+      track.addEventListener('mouseup', () => {
+          isDragging = false;
+          prevTranslate = currentTranslate;
+          track.style.transition = 'transform 0.5s ease-in-out';
+      });
+
+      track.addEventListener('mouseleave', () => {
+          if (isDragging) {
+              isDragging = false;
+              prevTranslate = currentTranslate;
+              track.style.transition = 'transform 0.5s ease-in-out';
+          }
+      });
+
+      window.onload = autoSlide;
+    </script>
+  </body>
+</html>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us Section</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f0f4f8; /* Adjust this to match your website theme */
+        }
+
+        .about-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 50px auto; /* Ensure margin is applied so it doesn't shift to the top */
+            padding: 20px;
+            background: linear-gradient(135deg, #ffffff, #a8e6cf); /* Matching website theme */
+        }
+
+        .about-content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        /* Title in black with "marketing magic" highlighted in green */
+        .about-content h2 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #000; /* Title in black */
+            margin-bottom: 20px;
+        }
+
+        .about-content h2 span {
+            color: #28a745; /* Green highlight for marketing magic */
+        }
+
+        .about-content p {
+            font-size: 18px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .about-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 15px;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .about-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-image img {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Choose Us Section</title>
+    <style>
+        /* Body styling, no global changes */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif; /* Default font for the entire body */
+        }
+
+        /* Section-specific background */
+        .why-choose-us-section {
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            background: #e6f7f9; /* Section-specific background */
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif; /* Applying Poppins to the entire section */
+        }
+
+        /* Title styling */
+        .why-choose-us-title {
+            font-size: 40px;
+            color: #000000; /* Black for "Why" */
+            margin-bottom: 40px;
+            font-weight: bold;
+        }
+
+        .why-choose-us-title span.green {
+            color: #4CAF50; /* Green for "Choose" and "Us?" */
+        }
+
+        /* Info box grid */
+        .info-boxes-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Info box design */
+        .info-box {
+            background-color: white;
+            border-radius: 20px;
+            padding: 30px;
+            width: 250px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .info-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Icon styling */
+        .info-box img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+        }
+
+        .info-box h3 {
+            font-size: 18px;
+            color: #4CAF50; /* Green color for heading */
+            margin: 0;
+        }
+
+        .info-box p {
+            font-size: 14px;
+            color: #333333;
+            text-align: center;
+        }
+
+        /* Background Animated Circles and Lines (localized to the section only) */
+        .why-choose-us-section .circle, .why-choose-us-section .line {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.3;
+            z-index: 1;
+            animation: move 20s linear infinite;
+        }
+
+        .why-choose-us-section .circle {
+            background: rgba(77, 182, 255, 0.5);
+        }
+
+        .why-choose-us-section .line {
+            background: rgba(77, 182, 255, 0.5);
+            height: 4px;
+            width: 250px;
+        }
+
+        /* Keyframe animation for circles/lines */
+        @keyframes move {
+            0% {
+                transform: translateY(0px) translateX(0px);
+            }
+            50% {
+                transform: translateY(50px) translateX(50px);
+            }
+            100% {
+                transform: translateY(0px) translateX(0px);
+            }
+        }
+
+        .why-choose-us-section .circle1 {
+            width: 150px;
+            height: 150px;
+            top: 20%;
+            left: 10%;
+            animation-duration: 18s;
+        }
+
+        .why-choose-us-section .circle2 {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            right: 20%;
+            animation-duration: 12s;
+        }
+
+        .why-choose-us-section .line1 {
+            top: 40%;
+            left: 20%;
+            animation-duration: 20s;
+        }
+
+        .why-choose-us-section .line2 {
+            top: 75%;
+            right: 10%;
+            animation-duration: 15s;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .info-boxes-container {
+                flex-direction: column;
+            }
+
+            .info-box {
+                width: 100%;
+                max-width: 300px;
+                margin-bottom: 20px;
+            }
+
+            .why-choose-us-section .circle1 {
+                width: 100px;
+                height: 100px;
+            }
+
+            .why-choose-us-section .circle2 {
+                width: 80px;
+                height: 80px;
+            }
+
+            .why-choose-us-section .line1, .why-choose-us-section .line2 {
+                width: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Why Choose Us Section with localized animation -->
+<div class="why-choose-us-section">
+    <!-- Animated Background Circles and Lines -->
+    <div class="circle circle1"></div>
+    <div class="circle circle2"></div>
+    <div class="line line1"></div>
+    <div class="line line2"></div>
+
+    <!-- Title -->
+    <div class="why-choose-us-title">
+        Why <span class="green">Choose</span> <span class="green">Us?</span>
+    </div>
+
+    <!-- Info Boxes Container -->
+    <div class="info-boxes-container">
+        <!-- Info Box 1 -->
+        <div class="info-box">
+            <img src="https://i.imgur.com/4eNczex.png" alt="Deep Industry Knowledge Icon">
+            <h3>Deep Industry Knowledge</h3>
+            <p>We possess in-depth knowledge of the influencer marketing industry.</p>
+        </div>
+
+        <!-- Info Box 2 -->
+        <div class="info-box">
+            <img src="https://i.imgur.com/Nh6lgm8.png" alt="Real Relationships Icon">
+            <h3>Real & Genuine Relationships</h3>
+            <p>We build real connections that foster genuine engagement.</p>
+        </div>
+
+        <!-- Info Box 3 -->
+        <div class="info-box">
+            <img src="https://i.imgur.com/VRdEYbS.png" alt="Innovative Conceptualization Icon">
+            <h3>Innovative Conceptualization</h3>
+            <p>Our creative team brings fresh ideas to every project we take on.</p>
+        </div>
+
+        <!-- Info Box 4 -->
+        <div class="info-box">
+            <img src="https://i.imgur.com/Kcd9qts.png" alt="Results-Driven Execution Icon">
+            <h3>Results-Driven Execution</h3>
+            <p>We focus on strategies that deliver measurable results.</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services with Hover Animation</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 50;
+            padding: 0;
+            background: #f0f4f8;
+        }
+
+        .services-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .services-section h2 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        /* Highlighting the word "Services" in green */
+        .services-section h2 span {
+            color: #28a745; /* Green color */
+        }
+
+        .services-section p.title-description {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin: 30 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-box {
+            background: #10263f;
+            color: #fff;
+            padding: 20px; /* Adjusted padding for more space */
+            border-radius: 10px;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Hover effect: the box will enlarge slightly */
+        .service-box:hover {
+            transform: scale(1.05); /* Box grows on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+        }
+
+        .service-number {
+            background: #00acc1;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: -25px;
+            left: 20px;
+        }
+
+        .service-box h3 {
+            font-size: 22px;
+            margin: 25px 0 10px; /* Moved text slightly upwards */
+        }
+
+        .service-box p {
+            font-size: 16px;
+            color: #a1c4d4;
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="services" class="services-section">
+    <h2>We Offer a Wide Range of <span>Services</span></h2>
+    <div class="services-grid">
+        <div class="service-box">
+            <div class="service-number">01</div>
+            <h3>Influencer Marketing</h3>
+            <p>Influencer partnerships drive authentic brand promotion, engagement, and growth.</p>
+        </div>
+        <div class="service-box">
+            <div class="service-number">02</div>
+            <h3>Content Marketing</h3>
+            <p>Strategic content creation and distribution to engage and convert audiences.</p>
+        </div>
+        <div class="service-box">
+            <div class="service-number">03</div>
+            <h3>Celebrity Endorsement</h3>
+            <p>Celebrity endorsements enhance brand credibility, visibility, and consumer trust.</p>
+        </div>
+        <div class="service-box">
+            <div class="service-number">04</div>
+            <h3>Meme Marketing</h3>
+            <p>We create fun and engaging meme content that resonates with your audience.</p>
+        </div>
+        <div class="service-box">
+            <div class="service-number">05</div>
+            <h3>Search Engine Optimization</h3>
+            <p>Boost your search rankings and increase online visibility with SEO strategies.</p>
+        </div>
+        <div class="service-box">
+            <div class="service-number">06</div>
+            <h3>Public Relation (PR) Service</h3>
+            <p>Build trust with effective public relations strategies and media exposure.</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+    <!-- Moving circles for background animation -->
+    <div class="circle circle1"></div>
+    <div class="circle circle2"></div>
+    <div class="circle circle3"></div>
+
+    <script>
+        function animateCircles() {
+            const circles = document.querySelectorAll('.circle');
+            circles.forEach(circle => {
+                circle.style.animationPlayState = 'running';
+            });
+        }
+
+        function expandBox(element) {
+            const description = element.querySelector('.service-description');
+            if (description.style.maxHeight) {
+                description.style.maxHeight = null;
+            } else {
+                description.style.maxHeight = description.scrollHeight + 'px';
+            }
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brands Section</title>
+    <style>
+        /* CSS for the "Brands" section */
+        .partner-section {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: 50px 0;
+            background: linear-gradient(135deg, #a8e6cf, #77bfa3); /* Updated background color */
+            text-align: center;
+        }
+
+        .partners-title {
+            font-size: 36px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            transition: opacity 1s ease;
+        }
+
+        .logo-box {
+            width: 120px;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.6), -4px -4px 10px rgba(255, 255, 255, 0.1);
+            margin: 0 20px;
+            background-color: white;
+        }
+
+        .logo-box img {
+            width: 80%;
+            height: auto;
+        }
+
+        .set {
+            display: none;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .set.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        /* Case Studies Button */
+        .case-studies-button {
+            display: inline-block;
+            margin-top: 50px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: white;
+            color: #4CAF50;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .case-studies-button:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+  
+    <!-- Brands Section -->
+    <div class="partner-section">
+        <div class="partners-title">Brands</div> <!-- Changed Title -->
+
+        <div class="logo-container set active" id="set1">
+            <!-- First Box with Filmora background -->
+            <div class="logo-box" style="background-color: #2b3a48;">
+                <img src="https://i.postimg.cc/YLKpw7gb/your-image.png" alt="Logo 1">
+            </div>
+            <div class="logo-box" style="background-color: #101629;">
+                <img src="https://i.postimg.cc/MMF8WSQh/your-image.png" alt="Logo 2">
+            </div>
+            <div class="logo-box" style="background-color: #000001;">
+                <img src="https://i.postimg.cc/xk17qZnY/your-image.png" alt="Logo 3">
+            </div>
+            <div class="logo-box" style="background-color: #ffffff;">
+                <img src="https://i.postimg.cc/Yh7dhPzV/your-image.png" alt="Logo 4">
+            </div>
+            <div class="logo-box" style="background-color: #F4b335;">
+                <img src="https://i.postimg.cc/CnsHGFs2/your-image.png" alt="Logo 5">
+            </div>
+        </div>
+
+        <div class="logo-container set" id="set2">
+            <div class="logo-box" style="background-color: #ffffff;">
+                <img src="https://i.postimg.cc/wR2Ltw68/your-image.png" alt="Logo 6">
+            </div>
+            <div class="logo-box" style="background-color: #d9d9d9;">
+                <img src="https://i.postimg.cc/FY7C4LZs/your-image.png" alt="Logo 7">
+            </div>
+            <div class="logo-box" style="background-color: #ffffff;">
+                <img src="https://i.postimg.cc/qhXjLXkQ/your-image.png" alt="Logo 8">
+            </div>
+            <div class="logo-box" style="background-color: #000000;">
+                <img src="https://i.postimg.cc/XXYwm0xn/your-image.png" alt="Logo 9">
+            </div>
+            <div class="logo-box" style="background-color: #000000;">
+                <img src="https://i.postimg.cc/XBbpkd2j/your-image.png" alt="Logo 10">
+            </div>
+        </div>
+
+        <!-- Case Studies Button -->
+        <a href="case-studies" class="case-studies-button">Case Studies</a>
+    </div>
+
+    <script>
+        // JavaScript for fading effect between sets
+        const sets = document.querySelectorAll('.set');
+        let currentSetIndex = 0;
+
+        function showNextSet() {
+            // Hide current set
+            sets[currentSetIndex].classList.remove('active');
+
+            // Update currentSetIndex to show the next set
+            currentSetIndex = (currentSetIndex + 1) % sets.length;
+
+            // Show the next set
+            sets[currentSetIndex].classList.add('active');
+        }
+
+        // Change sets every 4 seconds
+        setInterval(showNextSet, 4000);
+    </script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testimonials</title>
+  <style>
+    /* Section background and general styling */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Add margin-top to the testimonial section to prevent overlap */
+    .testimonial-section {
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #ffffff, #e6f7f9);
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      position: relative;
+      overflow: hidden;
+      margin-top: 0px; /* Adjust this value according to your navbar height */
+    }
+
+    .testimonial-section h2 {
+      font-size: 40px;
+      color: #000;
+      margin-bottom: 40px;
+      font-weight: bold;
+    }
+
+    /* Highlight "Clients Say" in green */
+    .testimonial-section h2 span {
+      color: #4CAF50;
+    }
+
+    /* Carousel container */
+    .testimonial-carousel {
+      display: flex;
+      justify-content: flex-start;
+      transition: transform 0.5s ease-in-out;
+      cursor: grab;
+    }
+
+    /* Testimonial card design */
+    .testimonial-box {
+      min-width: 250px;
+      height: 300px;
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 0 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .testimonial-box:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Client image */
+    .client-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+
+    /* Client name */
+    .client-name {
+      font-size: 18px;
+      color: #4CAF50;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    /* Client position or company */
+    .client-company {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 05px;
+    }
+
+    /* Testimonial text */
+    .testimonial-text {
+      font-size: 16px;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Responsive styling */
+    @media (max-width: 768px) {
+      .testimonial-box {
+        height: 250px;
+        padding: 15px;
+      }
+
+      .testimonial-text {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Testimonial Section -->
+  <div class="testimonial-section">
+    <h2>What Our <span>Clients Say</span></h2>
+
+    <!-- Testimonial Carousel -->
+    <div class="testimonial-carousel" id="testimonialCarousel">
+      <!-- Testimonial 1 -->
+      <div class="testimonial-box">
+        <img src="https://i.postimg.cc/L5Lk7VvT/3135715.png" alt="Client" class="client-img">
+        <div class="client-name">Barkley</div>
+        <div class="client-company">Head Of Growth, Luma AI</div>
+        <div class="testimonial-text">
+          "Working with Growwik's team was fantastic. Their campaign reports were clear and detailed, making it easy for us to see the impact."
+        </div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="testimonial-box">
+        <img src="https://i.postimg.cc/L5Lk7VvT/3135715.png" alt="Client" class="client-img">
+        <div class="client-name">Ritesh</div>
+        <div class="client-company">Founder, Hangout-hub</div>
+        <div class="testimonial-text">
+          "The creative campaigns from Growwik drove massive engagement for our brand. Their expertise in meme marketing is top-notch."
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="testimonial-box">
+        <img src="https://i.postimg.cc/L5Lk7VvT/3135715.png" alt="Client" class="client-img">
+        <div class="client-name">Cherry</div>
+        <div class="client-company">Head Of Influencer Marketing, ProductZ</div>
+        <div class="testimonial-text">
+          "Working with Growwik was a game-changer. Their influencer partnerships brought us closer to our audience."
+        </div>
+      </div>
+
+      <!-- Testimonial 4 -->
+      <div class="testimonial-box">
+        <img src="https://i.postimg.cc/L5Lk7VvT/3135715.png" alt="Client" class="client-img">
+        <div class="client-name">Christina CYR</div>
+        <div class="client-company">Marketing Manager, dTOOR</div>
+        <div class="testimonial-text">
+          "Growwik’s team is highly professional and results-driven. They exceeded our expectations."
+        </div>
+      </div>
+
+      <!-- Testimonial 5 -->
+      <div class="testimonial-box">
+        <img src="https://i.postimg.cc/L5Lk7VvT/3135715.png" alt="Client" class="client-img">
+        <div class="client-name">Prashant</div>
+        <div class="client-company">Head of Growth, Punch Manager</div>
+        <div class="testimonial-text">
+          "Their influencer campaigns brought tremendous visibility to our brand. We saw a significant boost in sales."
+        </div>
+      </div>
+
+      <!-- Testimonial 6 -->
+      <div class="testimonial-box">
+        <img src="https://i.postimg.cc/L5Lk7VvT/3135715.png" alt="Client" class="client-img">
+        <div class="client-name">David Johnson</div>
+        <div class="client-company">Head of Marketing, TechCorp</div>
+        <div class="testimonial-text">
+          "The team at Growwik is fantastic. Their attention to detail made all the difference for us."
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const carousel = document.getElementById('testimonialCarousel');
+    let isDragging = false;
+    let startPos = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+
+    // Drag functionality for the carousel
+    carousel.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      startPos = e.pageX;
+      carousel.style.transition = 'none';
+    });
+
+    carousel.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      const currentPosition = e.pageX;
+      const movement = currentPosition - startPos;
+      currentTranslate = prevTranslate + movement;
+      carousel.style.transform = `translateX(${currentTranslate}px)`;
+    });
+
+    carousel.addEventListener('mouseup', () => {
+      isDragging = false;
+      prevTranslate = currentTranslate;
+      carousel.style.transition = 'transform 0.5s ease-in-out';
+    });
+
+    carousel.addEventListener('mouseleave', () => {
+      if (isDragging) {
+        isDragging = false;
+        prevTranslate = currentTranslate;
+        carousel.style.transition = 'transform 0.5s ease-in-out';
+      }
+    });
+  </script>
+
+</body>
+
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Section</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif; /* Use a consistent font */
+        }
+
+        .chat-section {
+            width: 100%; /* Full width */
+            margin: 0px auto;
+            text-align: center;
+            background: linear-gradient(135deg, #ffffff, #e0f7fa); /* Glossy gradient background */
+            padding: 40px; /* Add padding */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+        }
+
+        .chat-title {
+            font-size: 36px;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        .chat-form {
+            max-width: 800px; /* Limit the width of the form */
+            margin: 0 auto; /* Center the form */
+            display: grid;
+            gap: 15px; /* Space between fields */
+        }
+
+        .chat-input {
+            padding: 15px; /* Increased padding */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 18px; /* Larger font size */
+            width: 100%; /* Full width */
+            transition: box-shadow 0.3s; /* Smooth transition for shadow */
+        }
+
+        .chat-input-container {
+            display: flex;
+            gap: 10px; /* Space between country code and number */
+            align-items: center; /* Center items vertically */
+        }
+
+        .country-code {
+            width: 80px; /* Fixed width for country code */
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px; /* Padding for the code */
+            background: #f9f9f9; /* Background for country code */
+            font-size: 18px; /* Larger font size */
+        }
+
+        .country-input {
+            width: 100%; /* Take remaining space */
+            padding: 15px; /* Increased padding */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 18px; /* Larger font size */
+            transition: box-shadow 0.3s; /* Smooth transition for shadow */
+        }
+
+        .chat-message {
+            height: 100px; /* Height for message box */
+            padding: 15px; /* Increased padding */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 18px; /* Larger font size */
+            transition: box-shadow 0.3s; /* Smooth transition for shadow */
+        }
+
+        .submit-button {
+            padding: 10px 15px; /* Adjust padding for smaller size */
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px; /* Larger font size */
+            transition: background-color 0.3s;
+            display: inline-block; /* Keep the width to the text */
+        }
+
+        .submit-button:hover {
+            background-color: #45a049; /* Darken on hover */
+        }
+
+        .thank-you-message {
+            display: none; /* Initially hidden */
+            margin-top: 20px;
+            font-size: 20px;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin: 60px 0; /* Space above and below */
+        }
+
+        .contact-email {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .contact-address {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 14px;
+            color: #888;
+            margin-top: 20px;
+        }
+
+        .logo {
+            margin: 20px auto; /* Center the logo */
+            width: 150px; /* Adjust width as necessary */
+        }
+    </style>
+</head>
+<y>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: 'Poppins', sans-serif; /* Choose a modern font */
+        background-color: #f9f9f9; /* Adjust to match your site */
+      }
+
+      h2 {
+        color: black;
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      h2 span {
+        color: green;
+      }
+
+      .form-container {
+        background-color: white;
+        padding: 40px;
+        max-width: 900px; /* Widened for the left-right layout */
+        margin: 40px auto;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+
+      .form-row div {
+        flex: 0 0 48%; /* Adjust width of form fields */
+        margin-bottom: 20px;
+      }
+
+      label {
+        font-size: 14px;
+        color: black; /* Set question text color to black */
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      textarea {
+        width: 100%;
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        background-color: #f0f0f0; /* Light background for input fields */
+        color: black; /* Text color in inputs */
+      }
+
+      textarea {
+        height: 100px;
+      }
+
+      input[type="submit"] {
+        background-color: green;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        width: 150px;
+        margin: 20px auto;
+        display: block;
+      }
+
+      input[type="submit"]:hover {
+        background-color: darkgreen;
+      }
+      
+      .contact-group {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px; /* Gap between fields */
+      }
+
+      .contact-group input {
+        width: calc(50% - 10px); /* Side-by-side for code and phone number */
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Let's Have <span>Chat</span></h2>
+    <div class="form-container">
+      <form id="Contact-Us">
+        <div class="form-row">
+          <div>
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" placeholder="First Name Last Name" required>
+          </div>
+          <div>
+            <label for="company">Company Name:</label>
+            <input type="text" id="company" name="company" placeholder="Company Name" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div>
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" placeholder="Email Address" required>
+          </div>
+          <div class="contact-group">
+            <input type="text" id="country-code" name="countryCode" placeholder="+91" required>
+            <input type="text" id="contact" name="contact" placeholder="Contact Number" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div style="flex: 1;">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" placeholder="Type your text here..." required></textarea>
+          </div>
+        </div>
+
+        <input type="submit" value="Send Message">
+      </form>
+    </div>
+
+    <script>
+      document.getElementById("contactForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        google.script.run.withSuccessHandler(function(response) {
+          alert(response);
+        }).submitFormData({
+          name: document.getElementById("name").value,
+          company: document.getElementById("company").value,
+          email: document.getElementById("email").value,
+          countryCode: document.getElementById("country-code").value,
+          contact: document.getElementById("contact").value,
+          message: document.getElementById("message").value
+        });
+      });
+    </script>
+  </body>
+</html>
+    </div><!-- WhatsApp Floating Button -->
+<a href="https://wa.me/917037298470" class="whatsapp-button" target="_blank">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+</a>
+
+<!-- CSS for Button with Shake Animation -->
+<style>
+.whatsapp-button {
+    position: fixed;
+    left: 20px; /* Left position */
+    bottom: 20px; /* Bottom position */
+    z-index: 1000; /* Ensures it stays on top */
+}
+
+.whatsapp-button img {
+    width: 70px; /* Increased size of the logo */
+    height: 70px;
+    border-radius: 50%; /* Makes the icon round */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Adds a subtle shadow */
+    transition: transform 0.3s ease;
+    animation: shake-animation 5s infinite; /* Trigger the shake animation every 5 seconds */
+}
+
+.whatsapp-button img:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Keyframes for Shake Animation */
+@keyframes shake-animation {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translate(-5px, 0);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translate(5px, 0);
+    }
+}
+</style>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compact Footer Example</title>
+    <style>
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        background-color: #f0f4f8; /* Improved light background theme */
+      }
+
+      .footer {
+        background-color: #1f1f1f; /* Darker footer background for contrast */
+        color: white; /* White text for readability */
+        padding: 30px 0; /* Reduced padding to make it smaller */
+        text-align: center;
+        width: 100%;
+        position: relative;
+      }
+
+      .footer-logo {
+        font-size: 50px; /* Reduced logo text size */
+        font-weight: bold;
+        color: white; /* Full white color for text */
+        position: relative;
+        display: inline-block;
+      }
+
+      .footer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1000px; /* Reduced max-width */
+        margin: 20px auto 0; /* Reduced margin */
+        padding: 0 20px;
+        animation: fadeIn 1.5s ease-in-out;
+      }
+
+      .footer-info {
+        text-align: left;
+        font-size: 12px; /* Reduced font size */
+      }
+
+      .footer-info p {
+        margin: 5px 0;
+      }
+
+      .footer-info a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-info a:hover {
+        color: #43A047; /* Change color to green on hover */
+        text-decoration: underline;
+      }
+
+      .footer-links-container {
+        font-size: 12px; /* Reduced font size */
+        text-transform: uppercase;
+        display: flex;
+        gap: 15px; /* Reduced gap between links */
+        position: relative;
+      }
+
+      .footer-links-container a {
+        color: white;
+        text-decoration: none;
+        position: relative;
+        padding-bottom: 5px;
+      }
+
+      .footer-links-container a:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px; /* Reduced underline height */
+        background-color: #43A047; /* Green underline */
+        transition: width 0.5s ease;
+      }
+
+      .footer-links-container a:hover:after {
+        width: 100%; /* Expand green bar on hover */
+      }
+
+      .social-icons {
+        display: flex;
+        justify-content: right;
+        gap: 15px; /* Reduced gap between social icons */
+      }
+
+      .social-icons a {
+        display: inline-block;
+        transition: transform 0.3s ease;
+      }
+
+      .social-icons a:hover {
+        transform: scale(1.1); /* Scale up on hover */
+      }
+
+      .social-icons img {
+        width: 25px; /* Reduced icon size */
+        filter: invert(100%); /* Make icons white for contrast */
+      }
+
+      .footer-bottom {
+        margin-top: 20px; /* Reduced margin */
+        font-size: 10px; /* Reduced font size */
+        color: lightgray;
+        text-align: center;
+        animation: fadeIn 2s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+
+    <footer class="footer">
+      <!-- Logo Text in Style of the Original Logo -->
+      <div class="footer-logo">
+        Growwik
+      </div>
+
+      <!-- Full-width Line -->
+      <div class="footer-line"></div>
+
+      <div class="footer-container">
+        <!-- Left side: Contact Info -->
+        <div class="footer-info">
+          <p><strong>Contact Us:</strong></p>
+          <p><a href="mailto:Punith@Growwik.com">Email: Punith@Growwik.com</a></p> <!-- Email is now clickable -->
+          <p>Phone: +91-9741016324</p>
+          <p>Bangalore, Karnataka, India</p>
+        </div>
+
+        <!-- Center: Navigation Links -->
+        <div class="footer-links-container">
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+          <a href="#">Case Studies</a>
+          <a href="#">Blog</a>
+          <a href="#">Privacy</a>
+        </div>
+
+        <!-- Right side: Social Media Icons -->
+        <div class="social-icons">
+          <a href="https://www.linkedin.com" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn Icon">
+          </a>
+          <a href="https://www.instagram.com" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram Icon">
+          </a>
+          <a href="https://www.skype.com" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174869.png" alt="Skype Icon">
+          </a>
+        </div>
+      </div>
+
+      <!-- Footer Bottom with Copyright -->
+      <div class="footer-bottom">
+        Cultivating Connections, Growing Success <br>
+        © 2024 Growwik Influencer Marketing Agency. All Rights Reserved.
+      </div>
+    </footer>
+
+  </body>
+</html>
+
+
+
+    
