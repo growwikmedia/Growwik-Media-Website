@@ -4,12 +4,12 @@ function doGet(e) {
 
   if (page == 'index') {
     // Load index.html from the raw GitHub link
-    return HtmlService.createHtmlOutputFromUrl('https://raw.githubusercontent.com/your-username/your-repository/main/intex.html');
+    return HtmlService.createHtmlOutputFromUrl('https://raw.githubusercontent.com/growwikmedia/Growwik-Media-Website/main/intex.html'); // Or update to 'index.html' if renamed
   } else if (page == 'Case-Study') {
     // Load case-studies.html from the raw GitHub link
-    return HtmlService.createHtmlOutputFromUrl('https://raw.githubusercontent.com/your-username/your-repository/main/case-studies.html');
+    return HtmlService.createHtmlOutputFromUrl('https://raw.githubusercontent.com/growwikmedia/Growwik-Media-Website/main/case-studies.html');
   } else {
     // If an unknown page is requested, load the main page as fallback
-    return HtmlService.createHtmlOutputFromUrl('https://raw.githubusercontent.com/your-username/your-repository/main/intex.html');
+    return HtmlService.createHtmlOutputFromUrl('https://raw.githubusercontent.com/growwikmedia/Growwik-Media-Website/main/intex.html');
   }
 }
