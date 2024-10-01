@@ -510,12 +510,11 @@
               track.style.transition = 'transform 0.5s ease-in-out';
           }
       });
-
-      window.onload = autoSlide;
+.onload = autoSlide;
     </script>
   </body>
 </html>
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -526,293 +525,239 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background: #f0f4f8; /* Adjust this to match your website theme */
+            background-color: #f5f5f5;
         }
 
+        /* About Us Section Styling */
         .about-section {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 1200px;
-            margin: 50px auto; /* Ensure margin is applied so it doesn't shift to the top */
-            padding: 20px;
-            background: linear-gradient(135deg, #ffffff, #a8e6cf); /* Matching website theme */
+            background: linear-gradient(135deg, #ffffff, #e0f7fa);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .about-title {
+            font-size: 48px;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-bottom: 20px;
         }
 
         .about-content {
-            flex: 1;
-            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 20px;
+            line-height: 1.8;
+            color: #555;
         }
 
-        /* Title in black with "marketing magic" highlighted in green */
-        .about-content h2 {
-            font-size: 36px;
+        .about-content strong {
             font-weight: bold;
-            color: #000; /* Title in black */
-            margin-bottom: 20px;
+            color: #333;
         }
 
-        .about-content h2 span {
-            color: #28a745; /* Green highlight for marketing magic */
+        .highlight {
+            color: #4CAF50;
+            font-weight: bold;
         }
 
-        .about-content p {
+        .know-more {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 30px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
             font-size: 18px;
-            color: #666;
-            line-height: 1.6;
-        }
-
-        .about-image {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .about-image img {
-            width: 100%;
-            max-width: 500px;
-            border-radius: 15px;
-            object-fit: cover;
-        }
-
-        @media (max-width: 768px) {
-            .about-section {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .about-image img {
-                width: 100%;
-                margin-bottom: 20px;
-            }
-        }
-    </style>
-</head>
-<body>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Why Choose Us Section</title>
-    <style>
-        /* Body styling, no global changes */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Poppins', sans-serif; /* Default font for the entire body */
-        }
-
-        /* Section-specific background */
-        .why-choose-us-section {
-            text-align: center;
-            padding: 60px 20px;
-            position: relative;
-            background: #e6f7f9; /* Section-specific background */
-            overflow: hidden;
-            font-family: 'Poppins', sans-serif; /* Applying Poppins to the entire section */
-        }
-
-        /* Title styling */
-        .why-choose-us-title {
-            font-size: 40px;
-            color: #000000; /* Black for "Why" */
-            margin-bottom: 40px;
             font-weight: bold;
+            transition: background-color 0.3s ease;
         }
 
-        .why-choose-us-title span.green {
-            color: #4CAF50; /* Green for "Choose" and "Us?" */
+        .know-more:hover {
+            background-color: #45a049;
         }
 
-        /* Info box grid */
-        .info-boxes-container {
+        /* Title for Categories and Creators */
+        .title {
+            margin-top: 40px;
+            font-weight: bold;
+            font-size: 28px;
+            color: #4CAF50;
+        }
+
+        /* Box Styling for Categories and Creators */
+        .about-box-container {
             display: flex;
             justify-content: center;
-            gap: 20px;
             flex-wrap: wrap;
-            position: relative;
-            z-index: 2;
+            gap: 15px;
+            margin-top: 20px;
         }
 
-        /* Info box design */
-        .info-box {
-            background-color: white;
-            border-radius: 20px;
-            padding: 30px;
+        .about-box {
+            background-color: #ffffff;
+            color: #333;
+            padding: 15px;
             width: 250px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .info-box:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Icon styling */
-        .info-box img {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 20px;
-        }
-
-        .info-box h3 {
-            font-size: 18px;
-            color: #4CAF50; /* Green color for heading */
-            margin: 0;
-        }
-
-        .info-box p {
-            font-size: 14px;
-            color: #333333;
-            text-align: center;
-        }
-
-        /* Background Animated Circles and Lines (localized to the section only) */
-        .why-choose-us-section .circle, .why-choose-us-section .line {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0.3;
-            z-index: 1;
-            animation: move 20s linear infinite;
-        }
-
-        .why-choose-us-section .circle {
-            background: rgba(77, 182, 255, 0.5);
-        }
-
-        .why-choose-us-section .line {
-            background: rgba(77, 182, 255, 0.5);
-            height: 4px;
-            width: 250px;
-        }
-
-        /* Keyframe animation for circles/lines */
-        @keyframes move {
-            0% {
-                transform: translateY(0px) translateX(0px);
-            }
-            50% {
-                transform: translateY(50px) translateX(50px);
-            }
-            100% {
-                transform: translateY(0px) translateX(0px);
-            }
-        }
-
-        .why-choose-us-section .circle1 {
-            width: 150px;
             height: 150px;
-            top: 20%;
-            left: 10%;
-            animation-duration: 18s;
+            border-radius: 15px;
+            font-size: 18px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, background-image 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-weight: bold;
         }
 
-        .why-choose-us-section .circle2 {
-            width: 120px;
-            height: 120px;
-            top: 60%;
-            right: 20%;
-            animation-duration: 12s;
+        .about-box:hover {
+            transform: scale(1.1);
+            color: transparent;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
         }
 
-        .why-choose-us-section .line1 {
-            top: 40%;
-            left: 20%;
-            animation-duration: 20s;
+        /* Category images on hover */
+        .about-box.fashion:hover {
+            background-image: url('https://i.postimg.cc/sXNj8yty/Untitled-250-x-200-px-250-x-150-px.png');
         }
 
-        .why-choose-us-section .line2 {
-            top: 75%;
-            right: 10%;
-            animation-duration: 15s;
+        .about-box.technology:hover {
+            background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400');
         }
 
-        /* Mobile responsiveness */
-        @media (max-width: 768px) {
-            .info-boxes-container {
-                flex-direction: column;
-            }
-
-            .info-box {
-                width: 100%;
-                max-width: 300px;
-                margin-bottom: 20px;
-            }
-
-            .why-choose-us-section .circle1 {
-                width: 100px;
-                height: 100px;
-            }
-
-            .why-choose-us-section .circle2 {
-                width: 80px;
-                height: 80px;
-            }
-
-            .why-choose-us-section .line1, .why-choose-us-section .line2 {
-                width: 150px;
-            }
+        .about-box.health:hover {
+            background-image: url('https://i.postimg.cc/wvyrFpzS/health.png');
         }
+
+        .about-box.food:hover {
+            background-image: url('https://i.postimg.cc/QMjnL73k/Food-beverger.png');
+        }
+
+        .about-box.gaming:hover {
+            background-image: url('https://i.postimg.cc/qqw9YGtK/Untitled-250-x-200-px-250-x-150-px.png');
+        }
+
+        .about-box.beauty:hover {
+            background-image: url('https://i.postimg.cc/mr6WZjVy/Untitled-250-x-200-px-250-x-150-px.png');
+        }
+
+        .about-box.travel:hover {
+            background-image: url('https://images.unsplash.com/photo-1507537509458-b8312d35a233?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400');
+        }
+
+        .about-box.sports:hover {
+            background-image: url('https://images.unsplash.com/photo-1521412644187-c49fa049e84d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400');
+        }
+
+        .about-box.entertainment:hover {
+            background-image: url('https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400');
+        }
+
+        /* Creators' flags on hover */
+        .about-box.usa:hover {
+            background-image: url('https://flagcdn.com/us.svg');
+        }
+
+        .about-box.pakistan:hover {
+            background-image: url('https://flagcdn.com/pk.svg');
+        }
+
+        .about-box.bangladesh:hover {
+            background-image: url('https://flagcdn.com/bd.svg');
+        }
+
+        .about-box.canada:hover {
+            background-image: url('https://flagcdn.com/ca.svg');
+        }
+
+        .about-box.malaysia:hover {
+            background-image: url('https://flagcdn.com/my.svg');
+        }
+
+        .about-box.philippines:hover {
+            background-image: url('https://flagcdn.com/ph.svg');
+        }
+
+        .about-box.uk:hover {
+            background-image: url('https://flagcdn.com/gb.svg');
+        }
+
+        .about-box.india:hover {
+            background-image: url('https://flagcdn.com/in.svg');
+        }
+
+        .about-box.australia:hover {
+            background-image: url('https://flagcdn.com/au.svg');
+        }
+
+        .about-box.uae:hover {
+            background-image: url('https://flagcdn.com/ae.svg');
+        }
+
     </style>
 </head>
 <body>
 
-<!-- Why Choose Us Section with localized animation -->
-<div class="why-choose-us-section">
-    <!-- Animated Background Circles and Lines -->
-    <div class="circle circle1"></div>
-    <div class="circle circle2"></div>
-    <div class="line line1"></div>
-    <div class="line line2"></div>
+    <!-- About Us Section -->
+    <section class="about-section" id="about-us">
+        <h2 class="about-title">About Us</h2>
+        <div class="about-content">
+            <p><strong>Growwik</strong> is a global influencer marketing agency that connects brands with diverse creators worldwide. 
+               We believe that <strong>content creation is a full-time job</strong>, and we stand by our commitment to fostering collaborations that lead to meaningful, long-lasting relationships. 
+               Our mission is simple yet powerful — <span class="highlight">“Cultivating Culture, Growing Success.”</span></p>
 
-    <!-- Title -->
-    <div class="why-choose-us-title">
-        Why <span class="green">Choose</span> <span class="green">Us?</span>
-    </div>
+            <!-- Title for Categories -->
+            <p class="title">Categories</p>
 
-    <!-- Info Boxes Container -->
-    <div class="info-boxes-container">
-        <!-- Info Box 1 -->
-        <div class="info-box">
-            <img src="https://i.imgur.com/4eNczex.png" alt="Deep Industry Knowledge Icon">
-            <h3>Deep Industry Knowledge</h3>
-            <p>We possess in-depth knowledge of the influencer marketing industry.</p>
+            <!-- Category Boxes with image on hover -->
+            <div class="about-box-container">
+                <div class="about-box fashion">Fashion & Lifestyle</div>
+                <div class="about-box technology">Technology</div>
+                <div class="about-box health">Health & Wellness</div>
+                <div class="about-box food">Food & Beverages</div>
+                <div class="about-box gaming">Gaming</div>
+                <div class="about-box beauty">Beauty & Makeup</div>
+                <div class="about-box travel">Travel & Adventure</div>
+                <div class="about-box sports">Sports & Fitness</div>
+                <div class="about-box entertainment">Entertainment</div>
+            </div>
+
+            <!-- Title for Creators From Other Geos -->
+            <p class="title">Creators From Other Geos We Have</p>
+
+            <!-- Creators Boxes with flag on hover -->
+            <div class="about-box-container">
+                <div class="about-box usa">United States</div>
+                <div class="about-box pakistan">Pakistan</div>
+                <div class="about-box bangladesh">Bangladesh</div>
+                <div class="about-box canada">Canada</div>
+                <div class="about-box malaysia">Malaysia</div>
+                <div class="about-box philippines">Philippines</div>
+                <div class="about-box uk">United Kingdom</div>
+                <div class="about-box india">India</div>
+                <div class="about-box australia">Australia</div>
+                <div class="about-box uae">UAE</div>
+            </div>
+
+            <p>We help brands reach the right audiences and create engaging, memorable campaigns through influencer marketing, meme marketing, SEO, and more.</p>
+
+            <p>At <strong>Growwik</strong>, we pride ourselves on our innovative, data-driven strategies that maximize growth potential for both brands and creators alike.</p>
         </div>
 
-        <!-- Info Box 2 -->
-        <div class="info-box">
-            <img src="https://i.imgur.com/Nh6lgm8.png" alt="Real Relationships Icon">
-            <h3>Real & Genuine Relationships</h3>
-            <p>We build real connections that foster genuine engagement.</p>
-        </div>
-
-        <!-- Info Box 3 -->
-        <div class="info-box">
-            <img src="https://i.imgur.com/VRdEYbS.png" alt="Innovative Conceptualization Icon">
-            <h3>Innovative Conceptualization</h3>
-            <p>Our creative team brings fresh ideas to every project we take on.</p>
-        </div>
-
-        <!-- Info Box 4 -->
-        <div class="info-box">
-            <img src="https://i.imgur.com/Kcd9qts.png" alt="Results-Driven Execution Icon">
-            <h3>Results-Driven Execution</h3>
-            <p>We focus on strategies that deliver measurable results.</p>
-        </div>
-    </div>
-</div>
+        <!-- Know More Button -->
+        <a href="#more-info" class="know-more">Know More</a>
+    </section>
 
 </body>
 </html>
 
 
-   <!DOCTYPE html>
+
+
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
