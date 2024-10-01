@@ -3,7 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Website</title>
+    <title>Growwik Media</title>
+    <style>
+        /* Smooth scroll for the whole website */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growwik Media</title>
     <style>
         body {
             margin: 0;
@@ -156,8 +170,8 @@
             <a class="nav-button" href="#home">Home</a>
             <a class="nav-button" href="#about-us">About Us</a>
             <a class="nav-button" href="#services">Our Services</a>
-            <a class="nav-button" href="#Contact-Us">Contact Us</a>
-            <a class="nav-button" href="#">Case Studies</a>
+            <a class="nav-button" href="#contact-form">Contact Us</a>
+            <a class="nav-button" href="#our-brands">Case Studies</a>
         </div>
         <div class="nav-right">
             Member of ASCI
@@ -193,327 +207,7 @@
 
 
 
-    <!-- Latest Work Section Title -->
-    <div class="latest-work-title"></div>
-
-    <!-- Latest Work Section -->
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Latest Work with Website Background</title>
-    <style>
-        /* CSS for the "" section */
-        .latest-work {
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            padding: 20px 0;
-            background: linear-gradient(135deg, #ffffff, #a8e6cf); /* Website's gradient background */
-            text-align: center;
-        }
-
-        .box-container {
-            display: flex;
-            justify-content: start;
-            gap: 20px; /* Maintain gap between boxes */
-            animation: slideRightLeft 16s ease-in-out infinite;
-        }
-
-        .box {
-            width: 250px;
-            height: 400px;
-            border-radius: 15px; /* Rounded corners */
-            background-color: #e0e0e0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0;
-            overflow: hidden;
-            flex-shrink: 0;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow added */
-        }
-
-        /* Hover effect for box (on mouse hover, box gets larger) */
-        .box:hover {
-            transform: scale(1.1); /* Box will enlarge slightly */
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Stronger shadow */
-        }
-
-        .box video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        /* Sliding Animation: Slide to right and then reverse back */
-        @keyframes slideRightLeft {
-            0% {
-                transform: translateX(0);
-            }
-            50% {
-                transform: translateX(calc(-270px * 5)); /* Slide for 5 boxes */
-            }
-            100% {
-                transform: translateX(0); /* Reverse back to original position */
-            }
-        }
-    </style>
-</head>
-<body>
-<!DOCTYPE html>
-<html>
-  <head>
-    <style>
-      /* Background and container styling */
-      .reel-container {
-          overflow: hidden;
-          width: 100%;
-          position: relative;
-          margin: 00 auto;
-          height: 500px;
-          display: flex;
-          justify-content: flex-start;
-          padding-right: 150px;
-          align-items: center;
-          background: linear-gradient(135deg, #ffffff, #a8e6cf); /* Background gradient */
-      }
-
-      .reel-track {
-          display: flex;
-          transform: translateX(0);
-          transition: transform 0.5s ease-in-out;
-      }
-
-      .reel-box {
-          min-width: 300px;
-          height: 450px;
-          background-color: linear-gradient(135deg, #ffffff, #f3f3f3)
-          margin: 0 15px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 20px;
-          overflow: hidden;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-          text-decoration: none;
-      }
-
-      .reel-box img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          border-radius: 20px;
-      }
-
-      /* Title Styling */
-      .recent-projects-title {
-          font-size: 32px;
-          font-weight: bold;
-          font-family: 'Poppins', sans-serif;
-          margin-bottom: 40px; /* Gap added between title and reel section */
-          text-align: center;
-      }
-
-      /* Green for "Recent Projects", Black for the rest */
-      .recent-projects-title span {
-          color: #4CAF50; /* Green color */
-      }
-
-      .recent-projects-title .black-text {
-          color: black;
-      }
-
-      /* Mobile Responsiveness */
-      @media (max-width: 768px) {
-          .reel-container {
-              height: 300px; /* Adjust height for smaller screens */
-              padding-right: 50px; /* Reduce right padding for mobile */
-          }
-
-          .reel-box {
-              min-width: 200px; /* Smaller box size for mobile */
-              height: 300px; /* Smaller height for mobile */
-          }
-      }
-    </style>
-  </head>
-  <!DOCTYPE html>
-<html>
-  <head>
-    <style>
-      /* Background and container styling */
-      .reel-container {
-          overflow: hidden;
-          width: 100%;
-          position: relative;
-          margin: 0 auto;
-          height: 500px;
-          display: flex;
-          justify-content: flex-start;
-          padding-right: 150px;
-          align-items: center;
-          background: linear-gradient(135deg, #ffffff, #f3f3f3); /* Matching background to Testimonials */
-      }
-
-      .reel-track {
-          display: flex;
-          transform: translateX(0);
-          transition: transform 0.5s ease-in-out;
-      }
-
-      .reel-box {
-          min-width: 300px;
-          height: 450px;
-          background-color: #f3f3f3;
-          margin: 0 15px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 20px;
-          overflow: hidden;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-          text-decoration: none;
-      }
-
-      .reel-box img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          border-radius: 20px;
-      }
-
-      /* Title Styling */
-      .recent-projects-title {
-          font-size: 32px;
-          font-weight: bold;
-          font-family: 'Poppins', sans-serif;
-          margin-bottom: 0px;
-          text-align: center;
-          background: linear-gradient(135deg, #ffffff, #e6f7f9); /* Matching background to Testimonials */
-          padding: 40px 0;
-      }
-
-      /* Green for "Under Our Proficiency", Black for the rest */
-      .recent-projects-title .black-text {
-          color: black;
-      }
-
-      .recent-projects-title .green-text {
-          color: #4CAF50; /* Green color for "Under Our Proficiency" */
-      }
-
-      /* Mobile Responsiveness */
-      @media (max-width: 768px) {
-          .reel-container {
-              height: 300px; /* Adjust height for smaller screens */
-              padding-right: 50px; /* Reduce right padding for mobile */
-          }
-
-          .reel-box {
-              min-width: 200px; /* Smaller box size for mobile */
-              height: 300px; /* Smaller height for mobile */
-          }
-      }
-    </style>
-  </head>
-  
-  <body>
-    <!-- Section Title -->
-    <div class="recent-projects-title">
-      <span class="black-text">Recent Projects</span> <span class="green-text">Under Our Proficiency</span>
-    </div>
     
-    <div class="reel-container">
-        <div class="reel-track">
-            <a href="case-study-boost.html" class="reel-box">
-                <img src="https://drive.google.com/uc?export=download&id=1XsxwPS_D6B8UJQOA4NgGovL4plfiJmPr
-" alt="Boost" />
-            </a>
-            <a href="case-study-sports.html" class="reel-box">
-                <img src="https://drive.google.com/uc?export=download&id=1XsxwPS_D6B8UJQOA4NgGovL4plfiJmPr
-" alt="Sports" />
-            </a>
-            <a href="case-study-triller.html" class="reel-box">
-                <img src="triller.jpg" alt="Triller" />
-            </a>
-            <a href="case-study-glance.html" class="reel-box">
-                <img src="glance.jpg" alt="Glance" />
-            </a>
-            <a href="case-study-box5.html" class="reel-box">
-                <img src="box5.jpg" alt="Box 5" />
-            </a>
-            <a href="case-study-box6.html" class="reel-box">
-                <img src="box6.jpg" alt="Box 6" />
-            </a>
-            <a href="case-study-box7.html" class="reel-box">
-                <img src="box7.jpg" alt="Box 7" />
-            </a>
-            <a href="case-study-box8.html" class="reel-box">
-                <img src="box8.jpg" alt="Box 8" />
-            </a>
-            <a href="case-study-box9.html" class="reel-box">
-                <img src="box9.jpg" alt="Box 9" />
-            </a>
-            <a href="case-study-box10.html" class="reel-box">
-                <img src="box10.jpg" alt="Box 10" />
-            </a>
-        </div>
-    </div>
-    
-    <script>
-      const track = document.querySelector('.reel-track');
-      let isDragging = false;
-      let startPos = 0;
-      let currentTranslate = 0;
-      let prevTranslate = 0;
-
-      function autoSlide() {
-          setInterval(() => {
-              currentTranslate -= 320; // Slide from right to left
-              track.style.transform = `translateX(${currentTranslate}px)`;
-              
-              // If the track reaches the end, reset the position
-              if (Math.abs(currentTranslate) >= track.scrollWidth - window.innerWidth + 150) {
-                  currentTranslate = 0; // Reset back to start, keeping left empty
-              }
-          }, 3000); // Auto slide every 3 seconds
-      }
-
-      track.addEventListener('mousedown', (e) => {
-          isDragging = true;
-          startPos = e.pageX;
-          track.style.transition = 'none';
-      });
-
-      track.addEventListener('mousemove', (e) => {
-          if (!isDragging) return;
-          const currentPosition = e.pageX;
-          const movement = currentPosition - startPos;
-          currentTranslate = prevTranslate + movement;
-          track.style.transform = `translateX(${currentTranslate}px)`;
-      });
-
-      track.addEventListener('mouseup', () => {
-          isDragging = false;
-          prevTranslate = currentTranslate;
-          track.style.transition = 'transform 0.5s ease-in-out';
-      });
-
-      track.addEventListener('mouseleave', () => {
-          if (isDragging) {
-              isDragging = false;
-              prevTranslate = currentTranslate;
-              track.style.transition = 'transform 0.5s ease-in-out';
-          }
-      });
-.onload = autoSlide;
-    </script>
-  </body>
-</html>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -693,10 +387,6 @@
             background-image: url('https://flagcdn.com/au.svg');
         }
 
-        .about-box.uae:hover {
-            background-image: url('https://flagcdn.com/ae.svg');
-        }
-
     </style>
 </head>
 <body>
@@ -710,7 +400,7 @@
                Our mission is simple yet powerful — <span class="highlight">“Cultivating Culture, Growing Success.”</span></p>
 
             <!-- Title for Categories -->
-            <p class="title">Categories</p>
+            <p class="title">Categories We Have</p>
 
             <!-- Category Boxes with image on hover -->
             <div class="about-box-container">
@@ -739,8 +429,7 @@
                 <div class="about-box uk">United Kingdom</div>
                 <div class="about-box india">India</div>
                 <div class="about-box australia">Australia</div>
-                <div class="about-box uae">UAE</div>
-            </div>
+                
 
             <p>We help brands reach the right audiences and create engaging, memorable campaigns through influencer marketing, meme marketing, SEO, and more.</p>
 
@@ -999,6 +688,7 @@
 <body>
   
     <!-- Brands Section -->
+  <section id="our-brands">
     <div class="partner-section">
         <div class="partners-title">Brands</div> <!-- Changed Title -->
 
@@ -1289,11 +979,15 @@
 </html>
 
 <!DOCTYPE html>
+  <section id="contact-form">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Section</title>
+
+</section>
+
     <style>
         body {
             font-family: 'Poppins', sans-serif; /* Use a consistent font */
@@ -1515,7 +1209,6 @@
   <body>
     <h2>Let's Have <span>Chat</span></h2>
     <div class="form-container">
-      <form id="Contact-Us">
         <div class="form-row">
           <div>
             <label for="name">Your Name:</label>
@@ -1611,7 +1304,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compact Footer Example</title>
+    <title>Footer Bar</title>
     <style>
       @keyframes fadeIn {
         0% {
@@ -1759,19 +1452,19 @@
 
         <!-- Center: Navigation Links -->
         <div class="footer-links-container">
-          <a href="#">About</a>
-          <a href="#">Contact</a>
-          <a href="#">Case Studies</a>
-          <a href="#">Blog</a>
-          <a href="#">Privacy</a>
+         <a href="#home">Home</a>
+          <a href="#about-us">About Us</a>
+          <a href="#services">Our Services</a>
+          <a href="#contact-form">Contact Us</a>
+          <a href="#our-brands">Case Studies</a>
         </div>
 
         <!-- Right side: Social Media Icons -->
         <div class="social-icons">
-          <a href="https://www.linkedin.com" target="_blank">
+          <a href="https://www.linkedin.com/company/growwik/?viewAsMember=true" target="_blank">
             <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn Icon">
           </a>
-          <a href="https://www.instagram.com" target="_blank">
+          <a href="https://www.instagram.com/growwikmedia/?utm_source=ig_web_button_share_sheet" target="_blank">
             <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram Icon">
           </a>
           <a href="https://www.skype.com" target="_blank">
@@ -1789,7 +1482,3 @@
 
   </body>
 </html>
-
-
-
-    
