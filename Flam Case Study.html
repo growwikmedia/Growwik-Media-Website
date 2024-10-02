@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags and Title -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flam App Case Study - Growwik Media</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <style>
+        /* Reset and Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Navigation Bar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 15px;
+            background-color: white;
+            border-bottom: 1px solid #ddd;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-button {
+            text-decoration: none;
+            color: #333;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .nav-button:hover {
+            transform: scale(1.1);
+            color: lightgreen;
+        }
+
+        .nav-right {
+            margin-right: 30px;
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .navbar img {
+            width: 80px;
+        }
+
+        /* Slide-in-left Animation */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            animation: slideInLeft 0.8s forwards;
+        }
+
+        .slide-in-left.delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .slide-in-left.delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .slide-in-left.delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        .slide-in-left.delay-4 {
+            animation-delay: 0.8s;
+        }
+
+        .slide-in-left.delay-5 {
+            animation-delay: 1s;
+        }
+
+        .slide-in-left.delay-6 {
+            animation-delay: 1.2s;
+        }
+
+        .slide-in-left.delay-7 {
+            animation-delay: 1.4s;
+        }
+
+        .slide-in-left.delay-8 {
+            animation-delay: 1.6s;
+        }
+
+        .slide-in-left.delay-9 {
+            animation-delay: 1.8s;
+        }
+
+        .slide-in-left.delay-10 {
+            animation-delay: 2s;
+        }
+
+        /* Header */
+        .header {
+            background-color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 3px solid #007f5f;
+            margin-top: 80px; /* To account for the fixed navigation bar */
+        }
+
+        .header h1 {
+            font-size: 48px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 24px;
+            color: #007f5f;
+            margin-top: 10px;
+        }
+
+        /* Case Study Content */
+        .case-study-section {
+            margin-top: 40px;
+        }
+
+        .case-study-section h2 {
+            font-size: 36px;
+            color: #007f5f;
+            margin-bottom: 20px;
+        }
+
+        .case-study-section p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .case-study-section ul {
+            margin-top: 20px;
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .case-study-section ul li {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        /* Statistics Section */
+        .statistics, .video-gallery {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap; /* Allow wrapping */
+        }
+
+        .stat-box, .video-item {
+            flex: 1 1 calc(25% - 20px); /* Fit 4 in a row, adjust for smaller screens */
+            min-width: 200px;
+        }
+
+        .stat-box {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-box h3 {
+            font-size: 28px;
+            color: #007f5f;
+            margin-bottom: 10px;
+        }
+
+        .stat-box p {
+            font-size: 24px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* Video Section */
+        .video-section {
+            margin-top: 40px;
+        }
+
+        .video-section h2 {
+            font-size: 32px;
+            color: #007f5f;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .video-item {
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .video-item:hover {
+            transform: scale(1.05);
+        }
+
+        .video-item iframe {
+            width: 100%;
+            height: 200px;
+            border: none;
+        }
+
+        /* Call to Action */
+        .cta-section {
+            margin-top: 60px;
+            padding: 40px;
+            background-color: #007f5f;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .cta-section h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .cta-section a {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: white;
+            color: #007f5f;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .cta-section a:hover {
+            background-color: #f1f1f1;
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 60px;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .footer p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .footer a {
+            color: #007f5f;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .stat-box, .video-item {
+                flex: 1 1 100%; /* Stack elements vertically on smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fixed Navigation Bar -->
+    <div class="navbar">
+        <img src="https://i.imgur.com/lGkc363.png" alt="Logo">
+        <div class="nav-buttons">
+            <a class="nav-button" href="index.html">Home</a>
+            <a class="nav-button" href="index.html#about-us">About Us</a>
+            <a class="nav-button" href="index.html#services">Our Services</a>
+            <a class="nav-button" href="index.html#contact-form">Contact Us</a>
+        </div>
+        <div class="nav-right">
+            Member of ASCI
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <div class="header slide-in-left delay-1">
+        <h1>Flam App Case Study</h1>
+        <p>Revolutionizing AR Technology with Interactive Newspaper Ads</p>
+    </div>
+
+    <!-- Case Study Content -->
+    <div class="container">
+        <!-- Objective Section -->
+        <div class="case-study-section slide-in-left delay-2">
+            <h2>Objective</h2>
+            <p>Flam App showcased its AR technology through innovative newspaper ads that transformed print media into interactive experiences. Users could scan the ads using the Flam app, allowing them to view branded videos in AR. The campaign also included influencer reels to promote the technology on social media.</p>
+        </div>
+
+        <!-- Campaign Overview Section -->
+        <div class="case-study-section slide-in-left delay-3">
+            <h2>Campaign Overview</h2>
+            <p>We applied AR technology to traditional newspaper ads, allowing users to scan and watch videos directly on the printed page. Collaborating with key influencers, we also promoted the campaign on Instagram reels, showcasing the technology in action.</p>
+        </div>
+
+        <!-- Target Audience Section -->
+        <div class="case-study-section slide-in-left delay-4">
+            <h2>Target Audience</h2>
+            <p>The campaign aimed to engage a wide range of users, including traditional print media consumers and tech-savvy individuals interested in AR. The target audience spanned India and Southeast Asia, where newspaper readership remains high.</p>
+        </div>
+
+        <!-- Statistics Section -->
+         <div class="statistics slide-in-left delay-5">
+            <div class="stat-box">
+                <h3>Total Reach</h3>
+                <p>8.9M+</p>
+            </div>
+            <div class="stat-box">
+                <h3>Total Likes</h3>
+                <p>800K+</p>
+            </div>
+            <div class="stat-box">
+                <h3>Total Comments</h3>
+                <p>3.2K+</p>
+            </div>
+        </div>
+
+        <!-- Influencer Highlights Section -->
+        <div class="case-study-section slide-in-left delay-6">
+            <h2>Influencer Collaboration Highlights</h2>
+            <ul>
+                <li><strong>Flam x MAHE Bangalore:</strong> 2M views, 87K+ likes, and 324 comments for the MAHE Bangalore.</li>
+                <li><strong>Flam x Britannia Nutrichoice:</strong> 6.2M+ million views, 700K+ likes, and 2705 comments.</li>
+                <li><strong>Flam Card Reel:</strong> 800K views, 39K likes, and 240 comments, showcasing the AR technology.</li>
+            </ul>
+        </div>
+
+        <!-- Reel Video Section -->
+        <div class="video-section slide-in-left delay-7">
+            <h2>Featured Influencer Reels</h2>
+            <div class="video-gallery">
+                <!-- Reel 1 -->
+                <div class="video-item">
+                    <iframe src="https://www.instagram.com/reel/C4sjtecRaeH/embed" allowfullscreen></iframe>
+                </div>
+                <!-- Reel 2 -->
+                <div class="video-item">
+                    <iframe src="https://www.instagram.com/reel/C4vYx9cv0hW/embed" allowfullscreen></iframe>
+                </div>
+                <!-- Reel 3 -->
+                <div class="video-item">
+                    <iframe src="https://www.instagram.com/reel/CaSYG1op2WP/embed" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results and Insights Section -->
+        <div class="case-study-section slide-in-left delay-8">
+            <h2>Results and Insights</h2>
+            <ul>
+                <li><strong>Massive Reach:</strong> The campaign generated over 8.9 million views, amplifying awareness of Flam’s AR technology.</li>
+                <li><strong>High Engagement:</strong> With more than 800K likes and 3.2K comments, the campaign resonated well with users.</li>
+                <li><strong>Brand Impact:</strong> The innovative use of AR in traditional media positioned Flam as a leader in immersive advertising.</li>
+            </ul>
+        </div>
+
+        <!-- Call to Action Section -->
+        <div class="cta-section slide-in-left delay-9">
+            <h2>Want to Learn More About This Case Study?</h2>
+            <p>Contact us to explore how our campaigns can transform your brand’s visibility using Augmented Reality and influencer marketing.</p>
+            <a href="mailto:Punith@growwik.com">Get in Touch</a>
+        </div>
+
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer slide-in-left delay-10">
+        <p>&copy; 2024 Growwik Media. All Rights Reserved.</p>
+        <p>Contact us at: <a href="mailto:punith@growwik.com">punith@growwik.com</a> | Phone: +91-7037298470</p>
+        <p>Bangalore, Karnataka, India</p>
+    </div>
+
+</body>
+</html>
