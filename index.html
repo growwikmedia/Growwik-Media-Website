@@ -5,51 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Growwik Media</title>
     <style>
-        /* Smooth scroll for the whole website */
+        /* Smooth scroll for the entire website */
         html {
             scroll-behavior: smooth;
         }
-    </style>
-</head>
-<body>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Growwik Media</title>
-    <style>
+
         body {
             margin: 0;
-            overflow-y: auto;
-            background: linear-gradient(135deg, #ffffff, #a8e6cf); /* Background extending from slogan */
-            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffffff, #a8e6cf);
         }
 
-        /* Slimmer Navigation bar styles */
+        /* Navigation Bar Styles */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 5px 15px; /* Reduced padding to make it slimmer */
+            height: 70px;
+            padding: 0 20px;
             background-color: white;
-            border-bottom: 1px solid #ddd;
             position: fixed;
+            width: 100%;
+            z-index: 1000;
             top: 0;
             left: 0;
-            width: 100%;
-            z-index: 1000; /* Keeps the navbar on top */
+            border-bottom: 1px solid #ddd;
+        }
+
+        .navbar img {
+            width: 80px;
         }
 
         .nav-buttons {
             display: flex;
             gap: 20px;
+            align-items: center; /* Center the buttons */
         }
 
         .nav-button {
             text-decoration: none;
             color: #333;
-            font-family: 'Poppins', sans-serif;
             font-size: 16px;
             font-weight: bold;
             transition: transform 0.3s, color 0.3s;
@@ -60,16 +55,92 @@
             color: lightgreen;
         }
 
-        /* Fix the alignment of "Member of ASCI" */
         .nav-right {
             margin-right: 30px;
             font-size: 16px;
-            font-family: 'Poppins', sans-serif;
+            align-self: center;
         }
 
-        /* Logo styling */
-        .navbar img {
-            width: 80px; /* Reduced size of the logo to fit the slimmer navbar */
+        /* Hide 'Member of ASCI' on mobile screens */
+        @media (max-width: 768px) {
+            .nav-right {
+                display: none;
+            }
+        }
+
+        /* Burger Icon for Mobile View */
+        .burger {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+            position: relative;
+            z-index: 1100;
+        }
+
+        .burger div {
+            width: 25px;
+            height: 3px;
+            background-color: black;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .burger.active .line1 {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .burger.active .line2 {
+            opacity: 0;
+        }
+
+        .burger.active .line3 {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Fullscreen Transparent Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(255, 255, 255, 0.95); /* Light transparent background */
+            z-index: 1000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .overlay.active {
+            display: flex;
+        }
+
+        .overlay-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 22px;
+        }
+
+        .overlay-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .overlay-menu a:hover {
+            transform: scale(1.1);
+            color: lightgreen;
+        }
+
+        .overlay-menu a:first-child {
+            color: #4CAF50; /* Highlight 'Home' with green */
         }
 
         /* Fullscreen Slogan Section */
@@ -78,53 +149,25 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh; /* Fullscreen height */
+            height: 100vh;
             text-align: center;
-            position: relative; /* To ensure circle animation works */
-            z-index: 1; /* Keeps slogan above the circles */
+            position: relative;
+            z-index: 1; /* Ensure the slogan stays above the circles and background */
         }
 
         .slogan {
-            font-family: 'Poppins', sans-serif;
             font-size: 48px;
             font-weight: bold;
             color: #4CAF50;
-            margin-top: 0; /* Removes the extra margin */
-            opacity: 0;
-            transform: translateY(50px);
-            animation: slideIn 1s forwards;
+            margin: 0;
         }
 
-        @keyframes slideIn {
-            0% {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Moving circles for background animation */
+        /* Circle Animations for Background */
         .circle {
             position: absolute;
             border-radius: 50%;
             opacity: 0.6;
-            animation: move 10s linear infinite;
-            z-index: 0; /* Keeps circles behind the content */
-        }
-
-        @keyframes move {
-            0% {
-                transform: translateY(0) translateX(0);
-            }
-            50% {
-                transform: translateY(-30px) translateX(30px);
-            }
-            100% {
-                transform: translateY(0) translateX(0);
-            }
+            z-index: 0;
         }
 
         .circle1 {
@@ -133,7 +176,7 @@
             height: 100px;
             top: 20%;
             left: 10%;
-            animation-duration: 8s;
+            animation: move 8s linear infinite;
         }
 
         .circle2 {
@@ -142,7 +185,7 @@
             height: 150px;
             top: 50%;
             left: 70%;
-            animation-duration: 12s;
+            animation: move 12s linear infinite;
         }
 
         .circle3 {
@@ -151,19 +194,68 @@
             height: 120px;
             top: 70%;
             left: 30%;
-            animation-duration: 10s;
+            animation: move 10s linear infinite;
         }
 
-        /* Recent Projects Section */
-        .recent-projects {
-            padding: 50px 20px; /* Keep some padding to avoid tight fit */
-            background: none; /* Remove any extra background */
+        @keyframes move {
+            0% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(30px, -30px);
+            }
+            100% {
+                transform: translate(0, 0);
+            }
         }
 
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-buttons {
+                display: none;
+            }
+
+            .burger {
+                display: block;
+                position: absolute;
+                top: 15px;
+                right: 50px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .slogan {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .slogan {
+                font-size: 36px;
+            }
+
+            .circle1 {
+                width: 80px;
+                height: 80px;
+            }
+
+            .circle2 {
+                width: 120px;
+                height: 120px;
+            }
+
+            .circle3 {
+                width: 100px;
+                height: 100px;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Fixed Navigation Bar -->
+
+    <!-- Navbar with Burger Icon -->
     <div class="navbar">
         <img src="https://i.imgur.com/lGkc363.png" alt="Logo">
         <div class="nav-buttons">
@@ -173,8 +265,23 @@
             <a class="nav-button" href="#contact-form">Contact Us</a>
             <a class="nav-button" href="#our-brands">Case Studies</a>
         </div>
-        <div class="nav-right">
-            Member of ASCI
+        <div class="nav-right">Member of ASCI</div>
+        <div class="burger" id="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </div>
+
+    <!-- Fullscreen Overlay Menu -->
+    <div class="overlay" id="overlay">
+        <div class="overlay-menu">
+            <a href="#home">HOME</a>
+            <a href="#about-us">ABOUT US</a>
+            <a href="#creators">CREATORS</a>
+            <a href="#services">SERVICES</a>
+            <a href="#brands">BRANDS</a>
+            <a href="#contact-form">CONTACT</a>
         </div>
     </div>
 
@@ -183,26 +290,34 @@
         <div class="slogan">Cultivating Connections,<br>Growing Success.</div>
     </div>
 
-    <!-- Circle Animations for Background -->
+    <!-- Circle Animations -->
     <div class="circle circle1"></div>
     <div class="circle circle2"></div>
     <div class="circle circle3"></div>
 
-    <!-- Recent Projects Section -->
-    <div class="recent-projects">
-        <!-- Add your existing Recent Projects code here -->
-    </div>
-
     <script>
-        function animateCircles() {
-            const circles = document.querySelectorAll('.circle');
-            circles.forEach(circle => {
-                circle.style.animationPlayState = 'running';
+        // Toggle Burger Menu and Overlay
+        const burger = document.getElementById('burger');
+        const overlay = document.getElementById('overlay');
+
+        burger.addEventListener('click', () => {
+            burger.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+
+        // Close the overlay when an option is clicked
+        const overlayLinks = document.querySelectorAll('.overlay-menu a');
+        overlayLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                overlay.classList.remove('active');
+                burger.classList.remove('active');
             });
-        }
+        });
     </script>
 </body>
 </html>
+
+
 
 
 
