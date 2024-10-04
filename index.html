@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+
     <title>Growwik Media</title>
     <style>
         /* Smooth scroll for the entire website */
@@ -16,150 +19,205 @@
             background: linear-gradient(135deg, #ffffff, #a8e6cf);
             overflow-x: hidden;
         }
+/* Navigation Bar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    padding: 0 20px;
+    background-color: white;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    border-bottom: 1px solid #ddd;
+    box-sizing: border-box;
+}
 
-        /* Navigation Bar Styles */
-        .navbar {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 70px;
-            padding: 0 20px;
-            background-color: white;
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            top: 0;
-            left: 0;
-            border-bottom: 1px solid #ddd;
-        }
+/* Logo Styling */
+.navbar img {
+    width: 100px;
+    margin-left: 10px;
+    position: relative;
+}
 
-        .navbar img {
-            width: 100px;
-            position: absolute;
-            left: 70px;
-            transform: translateX(-50%);
-        }
+/* Navigation Buttons Styling */
+.nav-buttons {
+    display: flex;
+    gap: 20px;
+}
 
-        .nav-buttons {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
+.nav-buttons a {
+    text-decoration: none; /* Remove underline */
+    color: #333; /* Set standard color */
+    font-size: 16px;
+    font-weight: bold;
+    transition: transform 0.3s, color 0.3s;
+    font-family: 'Poppins', sans-serif; /* Set consistent font */
+}
 
-        .nav-button {
-            text-decoration: none;
-            color: #333;
-            font-size: 16px;
-            font-weight: bold;
-            transition: transform 0.3s, color 0.3s;
-        }
+/* Hover effect for navigation buttons */
+.nav-buttons a:hover {
+    transform: scale(1.1);
+    color: lightgreen;
+}
 
-        .nav-button:hover {
-            transform: scale(1.1);
-            color: lightgreen;
-        }
+/* Right aligned text (like "Member of ASCI") */
+.nav-right {
+    font-size: 16px;
+    color: #333;
+}
+ 
+/* Hide "Member of ASCI" when burger menu appears */
+@media (max-width: 768px) {
+    .nav-right {
+        display: none; /* Hide "Member of ASCI" on tablet and mobile views */
+    }
+}
 
-        .nav-right {
-            font-size: 16px;
-            color: #333;
-            position: absolute;
-            right: 70px;
-        }
 
-        /* Hide 'Member of ASCI' on mobile */
-        @media (max-width: 955px) {
-            .nav-right {
-                display: none;
-            }
-        }
+/* Burger Icon for Mobile View */
+.burger {
+    display: none; /* Hidden by default */
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    right: 10px; /* Reduce right margin to fit in small screens */
+    z-index: 1100;
+}
 
-        /* Burger Icon for Mobile View */
-        .burger {
-            display: none;
-            cursor: pointer;
-            font-size: 24px;
-            position: absolute;
-            top: 15px;
-            right: 50px;
-            z-index: 1100;
-        }
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+    .burger {
+        display: block; /* Show burger icon on mobile */
+    }
 
-        .burger div {
-            width: 25px;
-            height: 3px;
-            background-color: black;
-            margin: 5px;
-            transition: all 0.3s ease;
-        }
+    .navbar {
+        padding: 0 10px; /* Reduce padding for navbar to fit within screen */
+    }
+}
 
-        .burger.active .line1 {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
 
-        .burger.active .line2 {
-            opacity: 0;
-        }
+/* Cross Icon Animation */
+.burger.active .line1 {
+    transform: rotate(45deg) translate(5px, 5px);
+}
 
-        .burger.active .line3 {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
+.burger.active .line2 {
+    opacity: 0;
+}
 
-        /* Fullscreen Transparent Overlay with Circle Animation */
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: rgba(255, 255, 255, 0);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            display: none;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            animation: expandCircle 0.5s ease-out;
-        }
+.burger.active .line3 {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
 
-        .overlay.active {
-            display: flex;
-            background: rgba(255, 255, 255, 0.95);
-        }
+/* Fullscreen Overlay for Mobile View */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 
-        .overlay-menu {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            width: 100%;
-            text-align: center;
-            font-size: 22px;
-        }
+.overlay.active {
+    display: flex; /* Show overlay when active */
+}
 
-        .overlay-menu a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-            padding: 10px;
-            transition: transform 0.3s, color 0.3s, background-color 0.3s;
-        }
+/* Allow flex wrap for navigation buttons */
+.nav-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* Allow buttons to wrap if needed */
+    justify-content: center; /* Center align the wrapped buttons */
+}
 
-        .overlay-menu a:hover {
-            transform: scale(1.2);
-            color: white;
-            background-color: #4CAF50;
-            border-radius: 5px;
-        }
+/* Tablet view adjustments */
+@media (max-width: 1024px) {
+    .nav-buttons {
+        justify-content: flex-start; /* Align buttons to start if wrapping */
+        gap: 10px; /* Reduce gap between buttons to prevent wrapping */
+    }
 
-        @keyframes expandCircle {
-            0% {
-                transform: scale(0);
-                opacity: 0;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
+    .navbar img {
+        width: 70px; /* Resize logo to free up space */
+    }
+}
+
+/* Responsive Styles for Mobile View */
+@media (max-width: 768px) {
+    .nav-buttons {
+        display: none; /* Hide navigation buttons */
+    }
+
+    .burger {
+        display: block; /* Show burger icon on mobile */
+    }
+  .navbar img {
+    width: 70px; /* Reduce logo size fit properly */
+    }
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .overlay.active {
+        display: flex; /* Show overlay when active */
+    }
+
+    .overlay-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        text-align: center;
+        font-size: 22px;
+    }
+
+    .overlay-menu a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        padding: 10px;
+        transition: transform 0.3s, color 0.3s, background-color 0.3s;
+        font-family: 'Poppins', sans-serif; /* Set consistent font family */
+    }
+
+    .overlay-menu a:hover {
+        transform: scale(1.2);
+        color: white;
+        background-color: #4CAF50;
+        border-radius: 5px;
+    }
+}
+
+
 
         /* Fullscreen Slogan Section */
         .content {
@@ -228,26 +286,28 @@
         }
 
         /* Responsive Styles */
-        @media (max-width: 768px) {
-            .nav-buttons {
-                display: none;
-            }
+@media (max-width: 768px) {
+    .nav-buttons {
+        display: none;
+    }
 
-            .burger {
-                display: block;
-                position: absolute;
-                top: 15px;
-                right: 50px;
-            }
+    .burger {
+        display: block;
+        position: fixed;
+        top: 15px;
+        right: 20px;
+        z-index: 1100;
+    }
 
-            .content {
-                padding: 20px;
-            }
+    .content {
+        padding: 20px;
+    }
 
-            .slogan {
-                font-size: 32px;
-            }
-        }
+    .slogan {
+        font-size: 32px;
+    }
+}
+
 
         @media (max-width: 1024px) {
             .slogan {
@@ -315,31 +375,39 @@
 
     <script>
         // Toggle Burger Menu and Overlay
-        const burger = document.getElementById('burger');
-        const overlay = document.getElementById('overlay');
+const burger = document.getElementById('burger');
+const overlay = document.getElementById('overlay');
+const navLinks = document.querySelectorAll('.nav-buttons a');
 
-        burger.addEventListener('click', () => {
-            burger.classList.toggle('active');
-            overlay.classList.toggle('active');
-        });
+burger.addEventListener('click', () => {
+    burger.classList.toggle('active');
+    overlay.classList.toggle('active');
+});
 
-        // Close the overlay when an option is clicked
-        const overlayLinks = document.querySelectorAll('.overlay-menu a');
-        overlayLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                overlay.classList.remove('active');
-                burger.classList.remove('active');
-            });
-        });
+// Close the overlay when an option is clicked
+const overlayLinks = document.querySelectorAll('.overlay-menu a');
+overlayLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        overlay.classList.remove('active');
+        burger.classList.remove('active');
+    });
+});
+
+// Navigation link animation effect
+navLinks.forEach((link, index) => {
+    link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.5}s`;
+});
+
+
+
     </script>
 </body>
 </html>
 
 
-
-
-
-    
+    </script>
+</body>
+</html>    
 <!DOCTYPE html>
 <html lang="en">
 <head>
