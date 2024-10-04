@@ -1501,184 +1501,216 @@ navLinks.forEach((link, index) => {
 </style>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Footer Bar</title>
     <style>
-      @keyframes fadeIn {
-        0% {
-          opacity: 0;
-          transform: translateY(20px);
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        100% {
-          opacity: 1;
-          transform: translateY(0);
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f4f8; /* Improved light background theme */
         }
-      }
 
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Poppins', sans-serif;
-        background-color: #f0f4f8; /* Improved light background theme */
-      }
+        .footer {
+            background-color: #1f1f1f; /* Darker footer background for contrast */
+            color: white; /* White text for readability */
+            padding: 20px 0; /* Reduced padding to make it smaller */
+            text-align: center;
+            width: 100%;
+            position: relative;
+            overflow: hidden; /* Prevents overflowing content */
+            box-sizing: border-box; /* Include padding and border in width calculation */
+        }
 
-      .footer {
-        background-color: #1f1f1f; /* Darker footer background for contrast */
-        color: white; /* White text for readability */
-        padding: 30px 0; /* Reduced padding to make it smaller */
-        text-align: center;
-        width: 100%;
-        position: relative;
-      }
+        .footer-logo {
+            font-size: 40px; /* Reduced logo text size */
+            font-weight: bold;
+            color: white; /* Full white color for text */
+            position: relative;
+            display: inline-block;
+        }
 
-      .footer-logo {
-        font-size: 50px; /* Reduced logo text size */
-        font-weight: bold;
-        color: white; /* Full white color for text */
-        position: relative;
-        display: inline-block;
-      }
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 100%;
+            margin: 20px auto 0;
+            padding: 0 10px;
+            flex-wrap: wrap; /* Allow items to wrap for small screens */
+            box-sizing: border-box; /* Avoid extra width from padding */
+            gap: 20px; /* Added gap for wrapped items */
+            animation: fadeIn 1.5s ease-in-out;
+        }
 
-      .footer-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 1000px; /* Reduced max-width */
-        margin: 20px auto 0; /* Reduced margin */
-        padding: 0 20px;
-        animation: fadeIn 1.5s ease-in-out;
-      }
+        .footer-info {
+            text-align: left;
+            font-size: 12px; /* Reduced font size */
+            flex: 1; /* Allow this to grow/shrink based on available space */
+            min-width: 150px; /* Prevent too small wrapping */
+        }
 
-      .footer-info {
-        text-align: left;
-        font-size: 12px; /* Reduced font size */
-      }
+        .footer-info p {
+            margin: 5px 0;
+        }
 
-      .footer-info p {
-        margin: 5px 0;
-      }
+        .footer-info a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
 
-      .footer-info a {
-        color: white;
-        text-decoration: none;
-        transition: color 0.3s ease;
-      }
+        .footer-info a:hover {
+            color: #43A047; /* Change color to green on hover */
+            text-decoration: underline;
+        }
 
-      .footer-info a:hover {
-        color: #43A047; /* Change color to green on hover */
-        text-decoration: underline;
-      }
+        .footer-links-container {
+            font-size: 12px; /* Reduced font size */
+            text-transform: uppercase;
+            display: flex;
+            gap: 15px; /* Reduced gap between links */
+            position: relative;
+            flex-wrap: wrap; /* Wrap links if necessary on small screens */
+            justify-content: center; /* Center-align links for smaller screens */
+        }
 
-      .footer-links-container {
-        font-size: 12px; /* Reduced font size */
-        text-transform: uppercase;
-        display: flex;
-        gap: 15px; /* Reduced gap between links */
-        position: relative;
-      }
+        .footer-links-container a {
+            color: white;
+            text-decoration: none;
+            position: relative;
+            padding-bottom: 5px;
+        }
 
-      .footer-links-container a {
-        color: white;
-        text-decoration: none;
-        position: relative;
-        padding-bottom: 5px;
-      }
+        .footer-links-container a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px; /* Reduced underline height */
+            background-color: #43A047; /* Green underline */
+            transition: width 0.5s ease;
+        }
 
-      .footer-links-container a:after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 2px; /* Reduced underline height */
-        background-color: #43A047; /* Green underline */
-        transition: width 0.5s ease;
-      }
+        .footer-links-container a:hover:after {
+            width: 100%; /* Expand green bar on hover */
+        }
 
-      .footer-links-container a:hover:after {
-        width: 100%; /* Expand green bar on hover */
-      }
+        .social-icons {
+            display: flex;
+            justify-content: right;
+            gap: 15px; /* Reduced gap between social icons */
+            flex: 1; /* Allow this to grow/shrink based on available space */
+            min-width: 150px; /* Prevent too small wrapping */
+            justify-content: flex-end; /* Align icons to the right */
+        }
 
-      .social-icons {
-        display: flex;
-        justify-content: right;
-        gap: 15px; /* Reduced gap between social icons */
-      }
+        .social-icons a {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
 
-      .social-icons a {
-        display: inline-block;
-        transition: transform 0.3s ease;
-      }
+        .social-icons a:hover {
+            transform: scale(1.1); /* Scale up on hover */
+        }
 
-      .social-icons a:hover {
-        transform: scale(1.1); /* Scale up on hover */
-      }
+        .social-icons img {
+            width: 25px; /* Reduced icon size */
+            filter: invert(100%); /* Make icons white for contrast */
+        }
 
-      .social-icons img {
-        width: 25px; /* Reduced icon size */
-        filter: invert(100%); /* Make icons white for contrast */
-      }
+        .footer-bottom {
+            margin-top: 20px; /* Reduced margin */
+            font-size: 10px; /* Reduced font size */
+            color: lightgray;
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
 
-      .footer-bottom {
-        margin-top: 20px; /* Reduced margin */
-        font-size: 10px; /* Reduced font size */
-        color: lightgray;
-        text-align: center;
-        animation: fadeIn 2s ease-in-out;
-      }
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column; /* Stack items vertically */
+                text-align: center;
+            }
+
+            .footer-logo {
+                margin-bottom: 10px;
+            }
+
+            .footer-info, .social-icons {
+                text-align: center;
+            }
+
+            .footer-links-container {
+                justify-content: center; /* Center-align for better look on small screens */
+            }
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
 
-    <footer class="footer">
-      <!-- Logo Text in Style of the Original Logo -->
-      <div class="footer-logo">
+<footer class="footer">
+    <!-- Logo Text in Style of the Original Logo -->
+    <div class="footer-logo">
         Growwik
-      </div>
+    </div>
 
-      <!-- Full-width Line -->
-      <div class="footer-line"></div>
+    <!-- Full-width Line -->
+    <div class="footer-line"></div>
 
-      <div class="footer-container">
+    <div class="footer-container">
         <!-- Left side: Contact Info -->
         <div class="footer-info">
-          <p><strong>Contact Us:</strong></p>
-          <p><a href="mailto:Punith@Growwik.com">Email: Punith@Growwik.com</a></p> <!-- Email is now clickable -->
-          <p>Phone: +91-9741016324</p>
-          <p>Bangalore, Karnataka, India</p>
+            <p><strong>Contact Us:</strong></p>
+            <p><a href="mailto:Punith@Growwik.com">Email: Punith@Growwik.com</a></p> <!-- Email is now clickable -->
+            <p>Phone: +91-9741016324</p>
+            <p>Bangalore, Karnataka, India</p>
         </div>
 
         <!-- Center: Navigation Links -->
         <div class="footer-links-container">
-         <a href="#home">Home</a>
-          <a href="#about-us">About Us</a>
-          <a href="#services">Our Services</a>
-          <a href="#contact-form">Contact Us</a>
-          <a href="#our-brands">Case Studies</a>
+            <a href="#home">Home</a>
+            <a href="#about-us">About Us</a>
+            <a href="#services">Our Services</a>
+            <a href="#contact-form">Contact Us</a>
+            <a href="#our-brands">Case Studies</a>
         </div>
 
         <!-- Right side: Social Media Icons -->
         <div class="social-icons">
-          <a href="https://www.linkedin.com/company/growwik/?viewAsMember=true" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn Icon">
-          </a>
-          <a href="https://www.instagram.com/growwikmedia/?utm_source=ig_web_button_share_sheet" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram Icon">
-          </a>
-          <a href="https://www.skype.com" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/174/174869.png" alt="Skype Icon">
-          </a>
+            <a href="https://www.linkedin.com/company/growwik/?viewAsMember=true" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn Icon">
+            </a>
+            <a href="https://www.instagram.com/growwikmedia/?utm_source=ig_web_button_share_sheet" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram Icon">
+            </a>
+            <a href="https://www.skype.com" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174869.png" alt="Skype Icon">
+            </a>
         </div>
-      </div>
+    </div>
 
-      <!-- Footer Bottom with Copyright -->
-      <div class="footer-bottom">
+    <!-- Footer Bottom with Copyright -->
+    <div class="footer-bottom">
         Cultivating Connections, Growing Success <br>
         © 2024 Growwik Influencer Marketing Agency. All Rights Reserved.
-      </div>
-    </footer>
+    </div>
+</footer>
 
-  </body>
+</body>
 </html>
