@@ -8,19 +8,9 @@
 
     <title>Growwik Media</title>
     <style>
-      
         /* Smooth scroll for the entire website */
         html {
             scroll-behavior: smooth;
-        }
-       body, html {
-            height: 100%;
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6; /* Text readability ke liye */
-            margin: 0;
-            width: 100vw;
-            padding: 0;
-            overflow-x: hidden; /* Horizontal overflow ko rokne ke liye */
         }
 
         body {
@@ -41,7 +31,7 @@
     justify-content: space-between;
     align-items: center; /* Align items in the center vertically */
     height: 70px;
-    padding: 0 15px;
+    padding: 0 20px;
     background-color: white;
     position: fixed;
     width: 100%;
@@ -50,7 +40,6 @@
     left: 0;
     border-bottom: 1px solid #ddd;
     box-sizing: border-box;
-  overflow: hidden;
 }
 
 /* Logo Styling */
@@ -265,7 +254,7 @@
         }
 
         /* Responsive Styles */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .nav-buttons {
         display: none;
     }
@@ -288,7 +277,7 @@
 }
 
 
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
             .slogan {
                 font-size: 36px;
             }
@@ -338,7 +327,7 @@
             <a href="#services">SERVICES</a>
             <a href="#our-brands">OUR CLIENTS</a>
            <a href="#clients">TESTIMONIALS</a>
-            <a href="#case-studies">CASE STUDIES</a>
+            <a href="case-studies">CASE STUDIES</a>
             <a href="#contactForm">CONTACT US</a>
         </div>
     </div>
@@ -405,9 +394,8 @@ navLinks.forEach((link, index) => {
         /* About Us Section Styling */
         .about-section {
             background: linear-gradient(135deg, #ffffff, #e0f7fa);
-            padding:  15px 30px;
+            padding: 80px 20px;
             text-align: center;
-          overflow: hidden;
         }
 
         .about-title {
@@ -644,7 +632,7 @@ navLinks.forEach((link, index) => {
         .services-section {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 15px 30px;
+            padding: 50px 20px;
             text-align: center;
         }
 
@@ -799,7 +787,7 @@ navLinks.forEach((link, index) => {
             width: 100%;
             overflow: hidden;
             position: relative;
-            padding: 15px 30px;
+            padding: 50px 0;
             background: linear-gradient(135deg, #a8e6cf, #77bfa3); /* Updated background color */
             text-align: center;
         }
@@ -992,7 +980,7 @@ navLinks.forEach((link, index) => {
 
     /* Add margin-top to the testimonial section to prevent overlap */
     .testimonial-section {
-      padding: 15px 30px;
+      padding: 60px 20px;
       background: linear-gradient(135deg, #ffffff, #e6f7f9);
       text-align: center;
       font-family: 'Poppins', sans-serif;
@@ -1375,7 +1363,7 @@ navLinks.forEach((link, index) => {
         .footer {
             background-color: #1f1f1f; /* Darker footer background for contrast */
             color: white; /* White text for readability */
-            padding: 5px 0; /* Reduced padding to make it smaller */
+            padding: 20px 0; /* Reduced padding to make it smaller */
             text-align: center;
             width: 100%;
             position: relative;
@@ -1397,12 +1385,11 @@ navLinks.forEach((link, index) => {
             align-items: center;
             max-width: 100%;
             margin: 20px auto 0;
-            padding: 5px 15px;
+            padding: 0 10px;
             flex-wrap: wrap; /* Allow items to wrap for small screens */
             box-sizing: border-box; /* Avoid extra width from padding */
             gap: 20px; /* Added gap for wrapped items */
             animation: fadeIn 1.5s ease-in-out;
-          overflow: none;
         }
 
         .footer-info {
@@ -1413,7 +1400,7 @@ navLinks.forEach((link, index) => {
         }
 
         .footer-info p {
-            margin: 5px 15PX;
+            margin: 5px 0;
         }
 
         .footer-info a {
@@ -1564,4 +1551,3 @@ navLinks.forEach((link, index) => {
 
 </body>
 </html>
-
