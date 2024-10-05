@@ -14,10 +14,15 @@
         }
 
         body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #ffffff, #a8e6cf);
-            overflow-x: hidden;
+            html, body {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6; /* Text readability ke liye */
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Horizontal overflow ko rokne ke liye */
+}
+
         }
 /* Navigation Bar Styles */
 .navbar {
@@ -73,7 +78,7 @@
 /* Hide "Member of ASCI" when burger menu appears */
 @media (max-width: 768px) {
     .nav-right {
-        display: none; /* Hide "Member of ASCI" on tablet and mobile views */
+        display: None; /* Hide "Member of ASCI" on tablet and mobile views */
     }
 }
 
@@ -1198,13 +1203,14 @@ navLinks.forEach((link, index) => {
       background-color: white;
       padding: 20px;
       max-width: 600px;
-      margin: 20px auto;
+      margin: 0px auto;
       border-radius: 10px;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
       box-sizing: border-box;
       z-index: 1;
       position: relative;
       margin-top: 10px; /* Adjust based on navigation bar height */
+      align-items: center;
     }
 
     label {
