@@ -82,9 +82,8 @@
             cursor: pointer;
             z-index: 1100;
             position: fixed;
-            right: 20px;
+            right: 30px;
             top: 20px;
-            transition: transform 0.3s ease;
         }
 
         .burger div {
@@ -140,7 +139,6 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            transition: transform 0.3s ease;
         }
 
         .overlay.active {
@@ -303,4 +301,184 @@
         .footer-logo {
             font-size: 40px;
             font-weight: bold;
-            color:
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-info, .footer-links, .social-icons {
+            flex: 1;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .footer-links a, .footer-info a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover, .footer-info a:hover {
+            color: #43A047;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin: 0 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.1);
+        }
+
+        .social-icons img {
+            width: 25px;
+            filter: invert(100%);
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+            font-size: 12px;
+            color: lightgray;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar with Burger Icon -->
+    <div class="navbar">
+        <img src="https://i.imgur.com/lGkc363.png" alt="Logo">
+        <div class="nav-buttons">
+            <a href="#home">Home</a>
+            <a href="#about-us">About Us</a>
+            <a href="#services">Our Services</a>
+            <a href="#contact">Contact Us</a>
+            <a href="#brands">Case Studies</a>
+        </div>
+        <div class="nav-right">Member of ASCI</div>
+        <div class="burger" id="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </div>
+
+    <!-- Fullscreen Overlay Menu -->
+    <div class="overlay" id="overlay">
+        <div class="overlay-menu">
+            <a href="#home">HOME</a>
+            <a href="#about-us">ABOUT US</a>
+            <a href="#services">SERVICES</a>
+            <a href="#brands">OUR CLIENTS</a>
+            <a href="#testimonials">TESTIMONIALS</a>
+            <a href="#case-studies">CASE STUDIES</a>
+            <a href="#contact">CONTACT US</a>
+        </div>
+    </div>
+
+    <!-- Fullscreen Slogan Section -->
+    <div class="content" id="home">
+        <div class="slogan">Cultivating Connections,<br>Growing Success.</div>
+    </div>
+
+    <!-- Circle Animations -->
+    <div class="circle circle1"></div>
+    <div class="circle circle2"></div>
+    <div class="circle circle3"></div>
+
+    <!-- About Us Section -->
+    <section class="section" id="about-us">
+        <h2 class="section-title">About Us</h2>
+        <div class="about-content">
+            <p>Growwik is a global influencer marketing agency that connects brands with diverse creators worldwide. We believe that content creation is a full-time job, and we stand by our commitment to fostering collaborations that lead to meaningful, long-lasting relationships.</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-content">
+            <p>We offer a wide range of services including Influencer Marketing, Content Marketing, Meme Marketing, and much more to help brands grow and succeed.</p>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section" id="testimonials">
+        <h2 class="section-title">What Our Clients Say</h2>
+        <div class="testimonial-content">
+            <p>Here are some reviews from our satisfied clients.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-content">
+            <p>Reach out to us to know more about our services and how we can help you grow.</p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-logo">Growwik</div>
+        <div class="footer-container">
+            <div class="footer-info">
+                <p>Contact Us:</p>
+                <p><a href="mailto:Punith@Growwik.com">Email: Punith@Growwik.com</a></p>
+                <p>Phone: +91-9741016324</p>
+                <p>Bangalore, Karnataka, India</p>
+            </div>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about-us">About Us</a>
+                <a href="#services">Our Services</a>
+                <a href="#contact">Contact Us</a>
+                <a href="#brands">Case Studies</a>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/company/growwik/?viewAsMember=true" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn Icon">
+                </a>
+                <a href="https://www.instagram.com/growwikmedia/?utm_source=ig_web_button_share_sheet" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram Icon">
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            Cultivating Connections, Growing Success <br>
+            © 2024 Growwik Influencer Marketing Agency. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Toggle Burger Menu and Overlay
+        const burger = document.getElementById('burger');
+        const overlay = document.getElementById('overlay');
+
+        burger.addEventListener('click', () => {
+            burger.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+
+        // Close the overlay when an option is clicked
+        const overlayLinks = document.querySelectorAll('.overlay-menu a');
+        overlayLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                overlay.classList.remove('active');
+                burger.classList.remove('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
