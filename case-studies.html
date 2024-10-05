@@ -8,12 +8,12 @@
         body {
             margin: 0;
             overflow-y: auto;
-            background: linear-gradient(135deg, #ffffff, #a8e6cf); /* Background extending from slogan */
+            background: linear-gradient(135deg, #ffffff, #a8e6cf);
             cursor: pointer;
-            font-family: 'Poppins', sans-serif; /* General font style */
+            font-family: 'Poppins', sans-serif;
             display: flex;
             flex-direction: column;
-            min-height: 100vh; /* Ensures footer sticks to the bottom */
+            min-height: 100vh;
         }
 
         /* Slimmer Navigation bar styles */
@@ -21,14 +21,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 5px 15px; /* Reduced padding to make it slimmer */
+            padding: 5px 15px;
             background-color: white;
             border-bottom: 1px solid #ddd;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 1000; /* Keeps the navbar on top */
+            z-index: 1000;
         }
 
         .nav-buttons {
@@ -59,15 +59,116 @@
 
         /* Logo styling */
         .navbar img {
-            width: 80px; /* Reduced size of the logo to fit the slimmer navbar */
+            width: 80px;
+        }
+
+        /* Burger Icon for Mobile View */
+        .burger {
+            display: none;
+            cursor: pointer;
+            z-index: 1100;
+            position: fixed;
+            right: 30px;
+            top: 15px;
+            transform: translateX(0);
+            transition: none;
+        }
+
+        /* Burger icon styles (3 lines) */
+        .burger div {
+            width: 25px;
+            height: 3px;
+            background-color: black;
+            margin: 5px;
+            transition: none;
+        }
+
+        /* Cross Icon Animation */
+        .burger.active .line1 {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .burger.active .line2 {
+            opacity: 0;
+        }
+
+        .burger.active .line3 {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Mobile view adjustments */
+        @media (max-width: 768px) {
+            .burger {
+                display: block;
+            }
+
+            .navbar {
+                padding: 0 10px;
+            }
+
+            .nav-buttons {
+                display: none;
+            }
+
+            .navbar img {
+                width: 70px;
+            }
+        }
+
+        /* Fullscreen Overlay for Mobile View */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .overlay.active {
+            display: flex;
+        }
+
+        /* Responsive Styles for Mobile View */
+        @media (max-width: 768px) {
+            .overlay-menu {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                width: 100%;
+                text-align: center;
+                font-size: 22px;
+            }
+
+            .overlay-menu a {
+                text-decoration: none;
+                color: #333;
+                font-weight: bold;
+                padding: 10px;
+                transition: transform 0.3s, color 0.3s, background-color 0.3s;
+                font-family: 'Poppins', sans-serif;
+            }
+
+            .overlay-menu a:hover {
+                transform: scale(1.2);
+                color: white;
+                background-color: #4CAF50;
+                border-radius: 5px;
+            }
         }
 
         /* Case Studies Title */
         .case-studies-title {
             text-align: center;
             font-size: 36px;
-            color: #00bf63; /* Green title */
-            margin-top: 100px; /* Adjusted to give space from the navbar */
+            color: #00bf63;
+            margin-top: 100px;
         }
 
         /* Case Studies Section */
@@ -77,7 +178,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            flex: 1; /* Allows the content to take available space */
+            flex: 1;
         }
 
         .case-study {
@@ -114,14 +215,14 @@
             display: inline-block;
             margin: 15px 0;
             padding: 10px 20px;
-            background-color: #00ff00; /* Green background */
+            background-color: #00ff00;
             color: #fff;
             text-decoration: none;
             border-radius: 5px;
         }
 
         .read-more:hover {
-            background-color: #009900; /* Darker green on hover */
+            background-color: #009900;
         }
 
         /* Footer Styles */
@@ -135,7 +236,7 @@
         .footer-logo {
             font-size: 36px;
             font-weight: bold;
-            color: #43A047; /* Green color for logo */
+            color: #43A047;
             margin-bottom: 10px;
         }
 
@@ -179,7 +280,7 @@
 
         .social-icons img {
             width: 25px;
-            filter: invert(100%); /* White icon color */
+            filter: invert(100%);
         }
     </style>
 </head>
@@ -193,9 +294,24 @@
             <a class="nav-button" href="index.html#about-us">About Us</a>
             <a class="nav-button" href="index.html#services">Our Services</a>
             <a class="nav-button" href="index.html#contact-form">Contact Us</a>
+      </div>
+          <div class="nav-right">
         </div>
-        <div class="nav-right">
-            Member of ASCI
+        <div class="burger" id="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </div>
+
+    <!-- Fullscreen Overlay Menu -->
+    <div class="overlay" id="overlay">
+        <div class="overlay-menu">
+            <a href="index.html">Home</a>
+            <a href="index.html#about-us">About Us</a>
+            <a href="index.html#services">Our Services</a>
+            <a href="index.html#contact-form">Contact Us</a>
+            <a href="#">Case Studies</a>
         </div>
     </div>
 
@@ -234,95 +350,39 @@
         </div>
     </section>
 
-   <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Footer Section - Growwik Media</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <style>
-        /* Reset and Global Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Full height for HTML and Body */
-        html, body {
-            height: 100%;
-        }
-
-        /* Flexbox to ensure footer sticks at the bottom */
-        body {
-            display: flex;
-            flex-direction: column;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .content {
-            flex: 1; /* Take up remaining space to push footer down */
-            padding: 20px;
-            background-color: #f9f9f9;
-        }
-
-        /* Footer Styles */
-        .footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-            font-size: 14px;
-        }
-
-        .footer p {
-            margin: 10px 0;
-            line-height: 1.6;
-        }
-
-        .footer a {
-            color: #43A047; /* Green color for email */
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
-        }
-
-        .footer .footer-contact {
-            margin-top: 10px;
-            color: #43A047;
-            font-weight: bold;
-        }
-
-        .footer-bottom {
-            font-size: 12px;
-            color: lightgray;
-            margin-top: 10px;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Content Area -->
-    <div class="content">
-        <!-- Your other content goes here -->
-    </div>
-
     <!-- Footer Section -->
     <footer class="footer">
-        <!-- Footer Contact Details -->
         <p>&copy; 2024 Growwik Media. All Rights Reserved.</p>
         <p>Contact us at: <a href="mailto:punith@growwik.com">punith@growwik.com</a> | Phone: +91-7037298470</p>
         <p>Bangalore, Karnataka, India</p>
-
-        <!-- Footer Bottom with light gray text -->
         <div class="footer-bottom">
             Cultivating Connections, Growing Success
         </div>
     </footer>
 
+    <script>
+        // Toggle Burger Menu and Overlay
+        const burger = document.getElementById('burger');
+        const overlay = document.getElementById('overlay');
+        const navLinks = document.querySelectorAll('.nav-buttons a');
+
+        burger.addEventListener('click', () => {
+            burger.classList.toggle('active');
+            overlay.classList.toggle('active');
+            // Fix position explicitly to ensure it doesn't shift
+            burger.style.position = 'fixed';
+            burger.style.top = '15px';
+            burger.style.right = '20px';
+        });
+
+        // Close the overlay when an option is clicked
+        const overlayLinks = document.querySelectorAll('.overlay-menu a');
+        overlayLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                overlay.classList.remove('active');
+                burger.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
