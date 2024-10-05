@@ -140,7 +140,7 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .overlay.active {
@@ -368,21 +368,4 @@
     <script>
         // Toggle Burger Menu and Overlay
         const burger = document.getElementById('burger');
-        const overlay = document.getElementById('overlay');
-
-        burger.addEventListener('click', () => {
-            burger.classList.toggle('active');
-            overlay.classList.toggle('active');
-        });
-
-        // Close the overlay when an option is clicked
-        const overlayLinks = document.querySelectorAll('.overlay-menu a');
-        overlayLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                overlay.classList.remove('active');
-                burger.classList.remove('active');
-            });
-        });
-    </script>
-</body>
-</html>
+        const
