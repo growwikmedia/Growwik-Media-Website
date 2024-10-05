@@ -83,8 +83,8 @@
     display: none; /* Hidden by default */
     cursor: pointer;
     position: fixed;
-    top: 20px;
-    right: 10px; /* Reduce right margin to fit in small screens */
+    top: 15px;
+    right: 20px; /* Reduce right margin to fit in small screens */
     z-index: 1100;
 }
 
@@ -340,7 +340,7 @@
             <a class="nav-button" href="#home">Home</a>
             <a class="nav-button" href="#about-us">About Us</a>
             <a class="nav-button" href="#services">Our Services</a>
-            <a class="nav-button" href="#contact-form">Contact Us</a>
+            <a class="nav-button" href="#contactForm">Contact Us</a>
             <a class="nav-button" href="#our-brands">Case Studies</a>
         </div>
         <div class="nav-right">Member of ASCI</div>
@@ -356,10 +356,11 @@
         <div class="overlay-menu">
             <a href="#home">HOME</a>
             <a href="#about-us">ABOUT US</a>
-            <a href="#creators">CREATORS</a>
             <a href="#services">SERVICES</a>
-            <a href="#brands">BRANDS</a>
-            <a href="#contact-form">CONTACT</a>
+            <a href="#our-brands">OUR CLIENTS</a>
+           <a href="#clients">TESTIMONIALS</a>
+            <a href="#case-studies">CASE STUDIES</a>
+            <a href="#contactForm">CONTACT US</a>
         </div>
     </div>
 
@@ -834,6 +835,8 @@ navLinks.forEach((link, index) => {
             display: flex;
             justify-content: center;
             transition: opacity 1s ease;
+            flex-wrap: wrap;
+            padding: 0 5px;
         }
 
         .logo-box {
@@ -844,7 +847,7 @@ navLinks.forEach((link, index) => {
             align-items: center;
             border-radius: 10px;
             box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.6), -4px -4px 10px rgba(255, 255, 255, 0.1);
-            margin: 0 20px;
+            margin: 10px;
             background-color: white;
         }
 
@@ -883,6 +886,44 @@ navLinks.forEach((link, index) => {
             color: white;
         }
 
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .partners-title {
+                font-size: 28px;
+                margin-bottom: 30px;
+            }
+
+            .logo-box {
+                width: 100px;
+                height: 100px;
+                margin: 5px;
+            }
+
+            .case-studies-button {
+                font-size: 16px;
+                padding: 8px 16px;
+                margin-top: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .partners-title {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+
+            .logo-box {
+                width: 70px;
+                height: 70px;
+                margin: 2px;
+            }
+
+            .case-studies-button {
+                font-size: 14px;
+                padding: 6px 12px;
+                margin-top: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -955,7 +996,6 @@ navLinks.forEach((link, index) => {
 </body>
 </html>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -977,7 +1017,6 @@ navLinks.forEach((link, index) => {
       text-align: center;
       font-family: 'Poppins', sans-serif;
       position: relative;
-      overflow: hidden; /* Prevent any content from going outside of this container */
       margin-top: 0px; /* Adjust this value according to your navbar height */
     }
 
@@ -993,37 +1032,26 @@ navLinks.forEach((link, index) => {
       color: #4CAF50;
     }
 
-    /* Carousel container */
-    .testimonial-carousel {
-      display: flex;
-      justify-content: flex-start;
-      transition: transform 0.3s ease-in-out;
-      cursor: grab;
-      overflow: hidden; /* Prevent the children from overflowing */
-    }
-
     /* Testimonial card design */
     .testimonial-box {
-      min-width: 250px;
-      height: 300px;
+      width: 80%;
+      max-width: 500px;
+      margin: 20px auto;
       background-color: white;
       border-radius: 10px;
       padding: 20px;
-      margin: 0 15px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      position: relative;  /* Ensure this doesn't affect others */
-      overflow: hidden; /* Prevent inner content from expanding beyond the box */
+      overflow: hidden;
     }
 
     .testimonial-box:hover {
-      transform: translateY(-10px) Scale(1.05);
+      transform: translateY(-10px) scale(1.05);
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-      margin: 10px; /* Reduce margin to fit better on smaller screens */
     }
 
     /* Client image */
@@ -1047,7 +1075,7 @@ navLinks.forEach((link, index) => {
     .client-company {
       font-size: 14px;
       color: #666;
-      margin-bottom: 05px;
+      margin-bottom: 5px;
     }
 
     /* Testimonial text */
@@ -1056,418 +1084,247 @@ navLinks.forEach((link, index) => {
       color: #333;
       line-height: 1.6;
     }
+  </style>
+</head>
 
-    /* Responsive styling */
-    @media (max-width: 768px) {
-      .testimonial-box {
-        height: 250px;
-        padding: 15px;
+<body>
+  <!-- Testimonial Section -->
+  <div class="testimonial-section" id="clients">
+  <div class="testimonial-section">
+    <h2>What Our <span>Clients Say</span></h2>
+
+    <!-- Testimonial 1 -->
+    <div class="testimonial-box">
+      <img src="https://i.postimg.cc/L5Lk7VvT/3135715.png" alt="Client" class="client-img">
+      <div class="client-name">Barkley</div>
+      <div class="client-company">Head Of Growth, Luma AI</div>
+      <div class="testimonial-text">
+        "Working with Growwik's team was fantastic. Their campaign reports were clear and detailed, making it easy for us to see the impact."
+      </div>
+    </div>
+
+    <!-- Testimonial 2 -->
+    <div class="testimonial-box">
+      <img src="https://i.postimg.cc/L5Lk7VvT/3135715.png" alt="Client" class="client-img">
+      <div class="client-name">Ritesh</div>
+      <div class="client-company">Founder, Hangout-hub</div>
+      <div class="testimonial-text">
+        "The creative campaigns from Growwik drove massive engagement for our brand. Their expertise in meme marketing is top-notch."
+      </div>
+    </div>
+
+    <!-- Testimonial 3 -->
+    <div class="testimonial-box">
+      <img src="https://i.postimg.cc/L5Lk7VvT/3135715.png" alt="Client" class="client-img">
+      <div class="client-name">Cherry</div>
+      <div class="client-company">Head Of Influencer Marketing, ProductZ</div>
+      <div class="testimonial-text">
+        "Working with Growwik was a game-changer. Their influencer partnerships brought us closer to our audience."
+      </div>
+    </div>
+
+    <!-- Testimonial 4 -->
+    <div class="testimonial-box">
+      <img src="https://i.postimg.cc/L5Lk7VvT/3135715.png" alt="Client" class="client-img">
+      <div class="client-name">Christina CYR</div>
+      <div class="client-company">Marketing Manager, dTOOR</div>
+      <div class="testimonial-text">
+        "Growwik’s team is highly professional and results-driven. They exceeded our expectations."
+      </div>
+    </div>
+
+    <!-- Testimonial 5 -->
+    <div class="testimonial-box">
+      <img src="https://i.postimg.cc/L5Lk7VvT/3135715.png" alt="Client" class="client-img">
+      <div class="client-name">Prashant</div>
+      <div class="client-company">Head of Growth, Punch Manager</div>
+      <div class="testimonial-text">
+        "Their influencer campaigns brought tremendous visibility to our brand. We saw a significant boost in sales."
+      </div>
+    </div>
+
+    <!-- Testimonial 6 -->
+    <div class="testimonial-box">
+      <img src="https://i.postimg.cc/L5Lk7VvT/3135715.png" alt="Client" class="client-img">
+      <div class="client-name">David Johnson</div>
+      <div class="client-company">Head of Marketing, TechCorp</div>
+      <div class="testimonial-text">
+        "The team at Growwik is fantastic. Their attention to detail made all the difference for us."
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Section</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9f9f9;
+      overflow-x: hidden;
+      padding-top: 50px;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: black;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 38px;
+    }
+
+    h2 span {
+      color: green;
+    }
+
+    .form-container {
+      background-color: white;
+      padding: 20px;
+      max-width: 600px;
+      margin: 20px auto;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      box-sizing: border-box;
+      z-index: 1;
+      position: relative;
+      margin-top: 10px; /* Adjust based on navigation bar height */
+    }
+
+    label {
+      font-size: 14px;
+      color: black;
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #000;
+      border-radius: 4px;
+      font-size: 16px;
+      background-color: #f9f9f9;
+      color: black;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      height: 100px;
+    }
+
+    input[type="submit"] {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 150px;
+      margin-top: 20px;
+      box-sizing: border-box;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 480px) {
+      h2 {
+        font-size: 20px;
       }
-      @media (max-width: 768px) {
-  .testimonial-carousel {
-    flex-wrap: wrap; /* Allow the items to wrap on small screens */
-    justify-content: center; /* Center the items for smaller screens */
-  }
 
+      .form-container {
+        padding: 10px;
+        margin: 10px;
+      }
 
-      .testimonial-text {
+      input[type="text"],
+      input[type="email"],
+      textarea {
         font-size: 14px;
+        padding: 10px;
+      }
+
+      input[type="submit"] {
+        font-size: 14px;
+        padding: 10px;
+        width: 100%;
+        margin-top: 10px;
       }
     }
   </style>
 </head>
 
 <body>
-
-  <!-- Testimonial Section -->
-  <div class="testimonial-section">
-    <h2>What Our <span>Clients Say</span></h2>
-
-    <!-- Testimonial Carousel -->
-    <div class="testimonial-carousel" id="testimonialCarousel">
-      <!-- Testimonial 1 -->
-      <div class="testimonial-box">
-        <img src="https://i.postimg.cc/L5Lk7VvT/3135715.png" alt="Client" class="client-img">
-        <div class="client-name">Barkley</div>
-        <div class="client-company">Head Of Growth, Luma AI</div>
-        <div class="testimonial-text">
-          "Working with Growwik's team was fantastic. Their campaign reports were clear and detailed, making it easy for us to see the impact."
-        </div>
-      </div>
-
-      <!-- Testimonial 2 -->
-      <div class="testimonial-box">
-        <img src="https://i.postimg.cc/L5Lk7VvT/3135715.png" alt="Client" class="client-img">
-        <div class="client-name">Ritesh</div>
-        <div class="client-company">Founder, Hangout-hub</div>
-        <div class="testimonial-text">
-          "The creative campaigns from Growwik drove massive engagement for our brand. Their expertise in meme marketing is top-notch."
-        </div>
-      </div>
-
-      <!-- Testimonial 3 -->
-      <div class="testimonial-box">
-        <img src="https://i.postimg.cc/L5Lk7VvT/3135715.png" alt="Client" class="client-img">
-        <div class="client-name">Cherry</div>
-        <div class="client-company">Head Of Influencer Marketing, ProductZ</div>
-        <div class="testimonial-text">
-          "Working with Growwik was a game-changer. Their influencer partnerships brought us closer to our audience."
-        </div>
-      </div>
-
-      <!-- Testimonial 4 -->
-      <div class="testimonial-box">
-        <img src="https://i.postimg.cc/L5Lk7VvT/3135715.png" alt="Client" class="client-img">
-        <div class="client-name">Christina CYR</div>
-        <div class="client-company">Marketing Manager, dTOOR</div>
-        <div class="testimonial-text">
-          "Growwik’s team is highly professional and results-driven. They exceeded our expectations."
-        </div>
-      </div>
-
-      <!-- Testimonial 5 -->
-      <div class="testimonial-box">
-        <img src="https://i.postimg.cc/L5Lk7VvT/3135715.png" alt="Client" class="client-img">
-        <div class="client-name">Prashant</div>
-        <div class="client-company">Head of Growth, Punch Manager</div>
-        <div class="testimonial-text">
-          "Their influencer campaigns brought tremendous visibility to our brand. We saw a significant boost in sales."
-        </div>
-      </div>
-
-      <!-- Testimonial 6 -->
-      <div class="testimonial-box">
-        <img src="https://i.postimg.cc/L5Lk7VvT/3135715.png" alt="Client" class="client-img">
-        <div class="client-name">David Johnson</div>
-        <div class="client-company">Head of Marketing, TechCorp</div>
-        <div class="testimonial-text">
-          "The team at Growwik is fantastic. Their attention to detail made all the difference for us."
-        </div>
-      </div>
-    </div>
-  </div>
-
   <script>
-    const carousel = document.getElementById('testimonialCarousel');
-    let isDragging = false;
-    let startPos = 0;
-    let currentTranslate = 0;
-    let prevTranslate = 0;
-
-    // Drag functionality for the carousel
-    carousel.addEventListener('mousedown', (e) => {
-      isDragging = true;
-      startPos = e.pageX;
-      carousel.style.transition = 'none';
-    });
-
-    carousel.addEventListener('mousemove', (e) => {
-      if (!isDragging) return;
-      const currentPosition = e.pageX;
-      const movement = currentPosition - startPos;
-      currentTranslate = prevTranslate + movement;
-      carousel.style.transform = `translateX(${currentTranslate}px)`;
-    });
-
-    carousel.addEventListener('mouseup', () => {
-      isDragging = false;
-      prevTranslate = currentTranslate;
-      carousel.style.transition = 'transform 0.5s ease-in-out';
-    });
-
-    carousel.addEventListener('mouseleave', () => {
-      if (isDragging) {
-        isDragging = false;
-        prevTranslate = currentTranslate;
-        carousel.style.transition = 'transform 0.5s ease-in-out';
+    document.addEventListener("DOMContentLoaded", function () {
+      const hash = window.location.hash;
+      if (hash === "#contact") {
+        setTimeout(function() {
+          window.scrollTo({ top: document.getElementById("contact-title").offsetTop - 100, behavior: "smooth" });
+        }, 200);
       }
     });
   </script>
+  <h2 id="contact-title">Let's Have a <span>Chat</span></h2>
+  <div class="form-container">
+    <form id="contactForm">
+      <label for="first-name">First Name:</label>
+      <input type="text" id="first-name" name="firstName" placeholder="First Name" required>
 
+      <label for="last-name">Last Name:</label>
+      <input type="text" id="last-name" name="lastName" placeholder="Last Name" required>
+
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" placeholder="Email Address" required>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" placeholder="Type your text here..." required></textarea>
+
+      <input type="submit" value="Send">
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      google.script.run.withSuccessHandler(function (response) {
+        alert('Your response has been recorded successfully!');
+      }).submitToGoogleSheet({
+        firstName: document.getElementById("first-name").value,
+        lastName: document.getElementById("last-name").value,
+        email: document.getElementById("email").value,
+        message: document.getElementById("message").value
+      });
+    });
+  </script>
 </body>
 
 </html>
-
-<!DOCTYPE html>
-  <section id="contact-form">
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Section</title>
-
-</section>
-
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif; /* Use a consistent font */
-        }
-
-        .chat-section {
-            width: 100%; /* Full width */
-            margin: 0px auto;
-            text-align: center;
-            background: linear-gradient(135deg, #ffffff, #e0f7fa); /* Glossy gradient background */
-            padding: 40px; /* Add padding */
-            border-radius: 10px; /* Rounded corners */
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-        }
-
-        .chat-title {
-            font-size: 36px;
-            font-weight: bold;
-            color: #4CAF50;
-            margin-bottom: 20px;
-        }
-
-        .chat-form {
-            max-width: 800px; /* Limit the width of the form */
-            margin: 0 auto; /* Center the form */
-            display: grid;
-            gap: 15px; /* Space between fields */
-        }
-
-        .chat-input {
-            padding: 15px; /* Increased padding */
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 18px; /* Larger font size */
-            width: 100%; /* Full width */
-            transition: box-shadow 0.3s; /* Smooth transition for shadow */
-        }
-
-        .chat-input-container {
-            display: flex;
-            gap: 10px; /* Space between country code and number */
-            align-items: center; /* Center items vertically */
-        }
-
-        .country-code {
-            width: 80px; /* Fixed width for country code */
-            display: flex;
-            align-items: center;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 15px; /* Padding for the code */
-            background: #f9f9f9; /* Background for country code */
-            font-size: 18px; /* Larger font size */
-        }
-
-        .country-input {
-            width: 100%; /* Take remaining space */
-            padding: 15px; /* Increased padding */
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 18px; /* Larger font size */
-            transition: box-shadow 0.3s; /* Smooth transition for shadow */
-        }
-
-        .chat-message {
-            height: 100px; /* Height for message box */
-            padding: 15px; /* Increased padding */
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 18px; /* Larger font size */
-            transition: box-shadow 0.3s; /* Smooth transition for shadow */
-        }
-
-        .submit-button {
-            padding: 10px 15px; /* Adjust padding for smaller size */
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 18px; /* Larger font size */
-            transition: background-color 0.3s;
-            display: inline-block; /* Keep the width to the text */
-        }
-
-        .submit-button:hover {
-            background-color: #45a049; /* Darken on hover */
-        }
-
-        .thank-you-message {
-            display: none; /* Initially hidden */
-            margin-top: 20px;
-            font-size: 20px;
-            color: #4CAF50;
-            font-weight: bold;
-        }
-
-        .contact-info {
-            text-align: center;
-            margin: 60px 0; /* Space above and below */
-        }
-
-        .contact-email {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .contact-address {
-            font-size: 16px;
-            margin-top: 10px;
-        }
-
-        .copyright {
-            text-align: center;
-            font-size: 14px;
-            color: #888;
-            margin-top: 20px;
-        }
-
-        .logo {
-            margin: 20px auto; /* Center the logo */
-            width: 150px; /* Adjust width as necessary */
-        }
-    </style>
-</head>
-<y>
-    <!DOCTYPE html>
-<html>
-  <head>
-    <style>
-      body {
-        font-family: 'Poppins', sans-serif; /* Choose a modern font */
-        background-color: #f9f9f9; /* Adjust to match your site */
-      }
-
-      h2 {
-        color: black;
-        text-align: center;
-        margin-top: 20px;
-      }
-
-      h2 span {
-        color: green;
-      }
-
-      .form-container {
-        background-color: white;
-        padding: 40px;
-        max-width: 900px; /* Widened for the left-right layout */
-        margin: 40px auto;
-        border-radius: 10px;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-      }
-
-      .form-row {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 20px;
-        flex-wrap: wrap;
-      }
-
-      .form-row div {
-        flex: 0 0 48%; /* Adjust width of form fields */
-        margin-bottom: 20px;
-      }
-
-      label {
-        font-size: 14px;
-        color: black; /* Set question text color to black */
-        display: block;
-        margin-bottom: 5px;
-        font-weight: bold;
-      }
-
-      input[type="text"],
-      input[type="email"],
-      textarea {
-        width: 100%;
-        padding: 15px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-size: 16px;
-        background-color: #f0f0f0; /* Light background for input fields */
-        color: black; /* Text color in inputs */
-      }
-
-      textarea {
-        height: 100px;
-      }
-
-      input[type="submit"] {
-        background-color: green;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-        width: 150px;
-        margin: 20px auto;
-        display: block;
-      }
-
-      input[type="submit"]:hover {
-        background-color: darkgreen;
-      }
-      
-      .contact-group {
-        display: flex;
-        justify-content: space-between;
-        gap: 15px; /* Gap between fields */
-      }
-
-      .contact-group input {
-        width: calc(50% - 10px); /* Side-by-side for code and phone number */
-      }
-    </style>
-  </head>
-  <body>
-    <h2>Let's Have <span>Chat</span></h2>
-    <div class="form-container">
-        <div class="form-row">
-          <div>
-            <label for="name">Your Name:</label>
-            <input type="text" id="name" name="name" placeholder="First Name Last Name" required>
-          </div>
-          <div>
-            <label for="company">Company Name:</label>
-            <input type="text" id="company" name="company" placeholder="Company Name" required>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div>
-            <label for="email">Email Address:</label>
-            <input type="email" id="email" name="email" placeholder="Email Address" required>
-          </div>
-          <div class="contact-group">
-            <input type="text" id="country-code" name="countryCode" placeholder="+91" required>
-            <input type="text" id="contact" name="contact" placeholder="Contact Number" required>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div style="flex: 1;">
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" placeholder="Type your text here..." required></textarea>
-          </div>
-        </div>
-
-        <input type="submit" value="Send Message">
-      </form>
-    </div>
-
-    <script>
-      document.getElementById("contactForm").addEventListener("submit", function(e) {
-        e.preventDefault();
-        google.script.run.withSuccessHandler(function(response) {
-          alert(response);
-        }).submitFormData({
-          name: document.getElementById("name").value,
-          company: document.getElementById("company").value,
-          email: document.getElementById("email").value,
-          countryCode: document.getElementById("country-code").value,
-          contact: document.getElementById("contact").value,
-          message: document.getElementById("message").value
-        });
-      });
-    </script>
-  </body>
 </html>
     </div><!-- WhatsApp Floating Button -->
 <a href="https://wa.me/917037298470" class="whatsapp-button" target="_blank">
@@ -1664,6 +1521,7 @@ navLinks.forEach((link, index) => {
 
             .footer-info, .social-icons {
                 text-align: center;
+               min-width: 150px; /* Ensure this is adjusted for smaller screens */
             }
 
             .footer-links-container {
