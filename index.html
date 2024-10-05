@@ -368,4 +368,29 @@
     <script>
         // Toggle Burger Menu and Overlay
         const burger = document.getElementById('burger');
-        const
+        const overlay = document.getElementById('overlay');
+
+        burger.addEventListener('click', () => {
+            burger.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+
+        // Close overlay when clicking a link
+        const overlayLinks = document.querySelectorAll('.overlay-menu a');
+        overlayLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                overlay.classList.remove('active');
+                burger.classList.remove('active');
+            });
+        });
+
+        // Ensure burger icon remains stable
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                overlay.classList.remove('active');
+                burger.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
