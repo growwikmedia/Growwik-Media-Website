@@ -75,6 +75,102 @@
             width: 80px;
         }
 
+        /* Burger Icon for Mobile View */
+        .burger {
+            display: none;
+            cursor: pointer;
+            z-index: 1100;
+            position: fixed;
+            right: 30px;
+            top: 15px;
+            transform: translateX(0);
+            transition: none;
+        }
+
+        .burger div {
+            width: 25px;
+            height: 3px;
+            background-color: black;
+            margin: 5px;
+            transition: none;
+        }
+
+        .burger.active .line1 {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .burger.active .line2 {
+            opacity: 0;
+        }
+
+        .burger.active .line3 {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Mobile view adjustments */
+        @media (max-width: 768px) {
+            .burger {
+                display: block;
+            }
+
+            .navbar {
+                padding: 0 10px;
+            }
+
+            .nav-buttons {
+                display: none;
+            }
+
+            .navbar img {
+                width: 70px;
+            }
+        }
+
+        /* Fullscreen Overlay for Mobile View */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .overlay.active {
+            display: flex;
+        }
+
+        .overlay-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 22px;
+        }
+
+        .overlay-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            padding: 10px;
+            transition: transform 0.3s, color 0.3s, background-color 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .overlay-menu a:hover {
+            transform: scale(1.2);
+            color: white;
+            background-color: #4CAF50;
+            border-radius: 5px;
+        }
+
         /* Slide-in-left Animation */
         @keyframes slideInLeft {
             from {
@@ -311,7 +407,23 @@
             <a class="nav-button" href="index.html#contact-form">Contact Us</a>
         </div>
         <div class="nav-right">
-            Member of ASCI
+            
+        </div>
+        <div class="burger" id="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </div>
+
+    <!-- Fullscreen Overlay Menu -->
+    <div class="overlay" id="overlay">
+        <div class="overlay-menu">
+            <a href="index.html">Home</a>
+            <a href="index.html#about-us">About Us</a>
+            <a href="index.html#services">Our Services</a>
+            <a href="index.html#contact-form">Contact Us</a>
+            <a href="#">Case Studies</a>
         </div>
     </div>
 
@@ -380,6 +492,25 @@
 
     <!-- Instagram Script -->
     <script async src="//www.instagram.com/embed.js"></script>
+
+    <!-- Toggle Burger Menu and Overlay -->
+    <script>
+        const burger = document.getElementById('burger');
+        const overlay = document.getElementById('overlay');
+
+        burger.addEventListener('click', () => {
+            burger.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+
+        const overlayLinks = document.querySelectorAll('.overlay-menu a');
+        overlayLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                overlay.classList.remove('active');
+                burger.classList.remove('active');
+            });
+        });
+    </script>
 
 </body>
 </html>
