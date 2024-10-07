@@ -31,7 +31,7 @@
     justify-content: space-between;
     align-items: center; /* Align items in the center vertically */
     height: 70px;
-    padding: 0 10px;
+    padding: 0 20px;
     background-color: white;
     position: fixed;
     width: 100%;
@@ -202,6 +202,7 @@
             text-align: center;
             position: relative;
             z-index: 1;
+            overflow: hidden;
         }
 
         .slogan {
@@ -223,6 +224,8 @@
             background: rgba(168, 230, 207, 0.5);
             width: 100px;
             height: 100px;
+            max-width: 100%;
+            
             top: 20%;
             left: 10%;
             animation: move 8s linear infinite;
@@ -294,24 +297,17 @@
             }
 
             .circle2 {
-                width: 120px;
-                height: 120px;
+                width: 80px;
+                height: 80px;
             }
 
             .circle3 {
                 width: 100px;
-                height: 100px;
+                height: 80px;
             }
         }
 
-        @media only screen and {max-width: 480px}
         
-        html,body{
-            width: 100%;
-            hight: 100%
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
             
             
     </style>
@@ -831,6 +827,7 @@ navLinks.forEach((link, index) => {
         .logo-box {
             width: 120px;
             height: 120px;
+            max width: 120%;
             display: flex;
             justify-content: center;
             align-items: center;
