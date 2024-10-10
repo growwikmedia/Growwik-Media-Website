@@ -620,15 +620,254 @@ navLinks.forEach((link, index) => {
 
             <p>At <strong>Growwik</strong>, we pride ourselves on our innovative, data-driven strategies that maximize growth potential for both brands and creators alike.</p>
         </div>
-
-        <!-- Know More Button -->
-        <a href="#more-info" class="know-more">Know More</a>
+            
     </section>
 
 </body>
 </html>
 
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creators We Have Worked With</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    /* Creators Section Styling */
+    .creators-section {
+      background: linear-gradient(135deg, #a8e6cf, #77bfa3);
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .creators-title {
+      font-size: 48px;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 40px;
+    }
+
+    /* Use grid to ensure equal space and prevent wrapping */
+    .creators-container {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr); /* Ensures five columns */
+      gap: 15px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Creator Card without white background */
+    .creator-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    /* Circular profile image */
+    .creator-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid white;
+      margin-bottom: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    /* Social Media Icons */
+    .social-icons {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icon {
+      width: 50px;
+      height: 50px;
+      background-color: white;
+      padding: 8px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .social-icon img {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* Zoom effect on hover/touch */
+    .creator-card:hover .creator-img,
+    .creator-card:active .creator-img {
+      transform: scale(1.1); /* Zoom in on touch/hover */
+    }
+
+    .creator-card:hover .social-icon,
+    .creator-card:active .social-icon {
+      transform: scale(1.1); /* Zoom in social media icons */
+    }
+
+    /* Creator Name and Username Styling */
+    .creator-name {
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 5px;
+    }
+
+    .creator-username {
+      font-size: 14px;
+      color: #f0f0f0;
+      margin-bottom: 20px;
+    }
+
+    /* Explore More Button */
+    .explore-more-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 30px;
+      background-color: white;
+      color: #4CAF50;
+      border: 2px solid white;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .explore-more-btn:hover {
+      background-color: #45a049;
+      color: white;
+    }
+
+    /* Responsive Layout for Mobile */
+    @media (max-width: 1200px) {
+      .creators-container {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Adjust grid for smaller screens */
+        gap: 15px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .creators-container {
+        grid-template-columns: 1fr; /* Stack all items on small screens */
+      }
+
+      .creator-card {
+        width: 100%;
+        max-width: 300px;
+        margin: 10px auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Creators We Have Worked With Section -->
+  <section class="creators-section" id="Creators">
+    <h2 class="creators-title">Creators</h2>
+
+    <div class="creators-container">
+      <!-- Creator 1 -->
+      <div class="creator-card">
+        <img src="https://i.postimg.cc/L5Lk7VvT/3135715.png" alt="Creator 1" class="creator-img">
+        <div class="creator-name">Sharan Hegde</div>
+        <div class="creator-username">@financewithsharan</div>
+        <div class="social-icons">
+          <div class="social-icon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+          </div>
+          <div class="social-icon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon.png" alt="YouTube">
+          </div>
+        </div>
+      </div>
+
+      <!-- Creator 2 -->
+      <div class="creator-card">
+        <img src="https://i.postimg.cc/L5Lk7VvT/3135715.png" alt="Creator 2" class="creator-img">
+        <div class="creator-name">Shivanshu Agarwal</div>
+        <div class="creator-username">@marketingshivanshu</div>
+        <div class="social-icons">
+          <div class="social-icon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+          </div>
+          <div class="social-icon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon.png" alt="YouTube">
+          </div>
+        </div>
+      </div>
+
+      <!-- Creator 3 -->
+      <div class="creator-card">
+        <img src="https://i.postimg.cc/L5Lk7VvT/3135715.png" alt="Creator 3" class="creator-img">
+        <div class="creator-name">Nidhi Nagori</div>
+        <div class="creator-username">@nidhinagori29</div>
+        <div class="social-icons">
+          <div class="social-icon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+          </div>
+          <div class="social-icon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon.png" alt="YouTube">
+          </div>
+        </div>
+      </div>
+
+      <!-- Creator 4 -->
+      <div class="creator-card">
+        <img src="https://i.postimg.cc/L5Lk7VvT/3135715.png" alt="Creator 4" class="creator-img">
+        <div class="creator-name">Shreyaa Kapoor</div>
+        <div class="creator-username">@shreyaakapoor_</div>
+        <div class="social-icons">
+          <div class="social-icon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+          </div>
+          <div class="social-icon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon.png" alt="YouTube">
+          </div>
+        </div>
+      </div>
+
+      <!-- Creator 5 -->
+      <div class="creator-card">
+        <img src="https://i.postimg.cc/L5Lk7VvT/3135715.png" alt="Creator 5" class="creator-img">
+        <div class="creator-name">Anushka Rathod</div>
+        <div class="creator-username">@anushkarathod98</div>
+        <div class="social-icons">
+          <div class="social-icon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+          </div>
+          <div class="social-icon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon.png" alt="YouTube">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Explore More Button -->
+    <a href="#" class="explore-more-btn">Explore more</a>
+
+  </section>
+
+</body>
+
+</html>
 
 
  <!DOCTYPE html>
