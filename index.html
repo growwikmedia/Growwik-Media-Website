@@ -812,7 +812,7 @@ navLinks.forEach((link, index) => {
             font-size: 38px;
             font-weight: bold;
             color: white;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
 
         .logo-container {
@@ -826,7 +826,6 @@ navLinks.forEach((link, index) => {
         .logo-box {
             width: 120px;
             height: 120px;
-            max width: 120%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -872,41 +871,46 @@ navLinks.forEach((link, index) => {
         }
 
         /* Mobile Responsive Styles */
-        @media (max-width: 100px) {
+        @media (max-width: 600px) {
             .partners-title {
                 font-size: 28px;
-                margin-bottom: 30px;
-            }
-
-            .logo-box {
-                width: 130px;
-                height: 120px;
-                margin: 10px;
-            }
-
-            .case-studies-button {
-                font-size: 26px;
-                padding: 8px 16px;
-                margin-top: 50px;
-            }
-        }
-
-        @media (max-width: 100px) {
-            .partners-title {
-                font-size: 24px;
                 margin-bottom: 20px;
             }
 
             .logo-box {
-                width: 70px;
-                height: 70px;
-                margin: 2px;
+                width: 100px;
+                height: 100px;
+                margin: 10px;
             }
 
             .case-studies-button {
-                font-size: 14px;
-                padding: 60px 12px;
-                margin-top: 35px;
+                font-size: 12px;
+                padding: 8px 16px;
+                margin-top: 30px;
+            }
+        }
+
+        /* Desktop view - Larger size for desktop */
+        @media (min-width: 1024px) {
+            .partner-section {
+                padding: 120px 0; /* Increased section padding */
+            }
+
+            .partners-title {
+                font-size: 60px; /* Increased title size */
+                margin-bottom: 50px;
+            }
+
+            .logo-box {
+                width: 200px; /* Increased logo box size */
+                height: 200px;
+                margin: 30px; /* Increased margin for spacing */
+            }
+
+            .case-studies-button {
+                font-size: 22px;
+                padding: 16px 32px;
+                margin-top: 40px;
             }
         }
     </style>
@@ -916,10 +920,9 @@ navLinks.forEach((link, index) => {
     <!-- Brands Section -->
   <section id="our-brands">
     <div class="partner-section">
-        <div class="partners-title">Our Clients</div> <!-- Changed Title -->
+        <div class="partners-title">Our Clients</div>
 
         <div class="logo-container set active" id="set1">
-            <!-- First Box with Filmora background -->
             <div class="logo-box" style="background-color: #2b3a48;">
                 <img src="https://i.postimg.cc/YLKpw7gb/your-image.png" alt="Logo 1">
             </div>
@@ -979,7 +982,7 @@ navLinks.forEach((link, index) => {
         setInterval(showNextSet, 3000);
     </script>
 </body>
-</html>    
+</html>
 
 <!DOCTYPE html>
 <html lang="en">
