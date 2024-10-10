@@ -621,11 +621,114 @@ navLinks.forEach((link, index) => {
             <p>At <strong>Growwik</strong>, we pride ourselves on our innovative, data-driven strategies that maximize growth potential for both brands and creators alike.</p>
         </div>
 
+        <!-- Know More Button -->
+        <a href="#more-info" class="know-more">Know More</a>
+    </section>
 
 </body>
 </html>
 
-<
+
+
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services with Hover Animation</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 50;
+            padding: 0;
+            background: #f0f4f8;
+        }
+
+        .services-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .services-section h2 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        /* Highlighting the word "Services" in green */
+        .services-section h2 span {
+            color: #28a745; /* Green color */
+        }
+
+        .services-section p.title-description {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin: 30 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-box {
+            background: #10263f;
+            color: #fff;
+            padding: 20px; /* Adjusted padding for more space */
+            border-radius: 10px;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Hover effect: the box will enlarge slightly */
+        .service-box:hover {
+            transform: scale(1.05); /* Box grows on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+        }
+
+        .service-number {
+            background: #00acc1;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: -25px;
+            left: 20px;
+        }
+
+        .service-box h3 {
+            font-size: 22px;
+            margin: 25px 0 10px; /* Moved text slightly upwards */
+        }
+
+        .service-box p {
+            font-size: 16px;
+            color: #a1c4d4;
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
 <div id="services" class="services-section">
     <h2>We Offer a Wide Range of <span>Services</span></h2>
     <div class="services-grid">
