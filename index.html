@@ -992,20 +992,18 @@ navLinks.forEach((link, index) => {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Testimonials</title>
   <style>
-    /* Section background and general styling */
+    /* General styling */
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
+      background-color: #f9f9f9;
+      overflow-x: hidden;
     }
 
-    /* Add margin-top to the testimonial section to prevent overlap */
     .testimonial-section {
       padding: 60px 20px;
       background: linear-gradient(135deg, #ffffff, #e6f7f9);
       text-align: center;
-      font-family: 'Poppins', sans-serif;
-      position: relative;
-      margin-top: 0px; /* Adjust this value according to your navbar height */
     }
 
     .testimonial-section h2 {
@@ -1020,11 +1018,31 @@ navLinks.forEach((link, index) => {
       color: #4CAF50;
     }
 
+    /* Testimonial wrapper for horizontal sliding */
+    .testimonial-wrapper {
+      display: flex;
+      overflow-x: scroll; /* Enable horizontal scroll */
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+      gap: 20px;
+      justify-content: center;
+      padding-bottom: 20px;
+      scrollbar-width: none; /* Hide scrollbar for Firefox */
+      cursor: grab; /* Show grab hand on desktop */
+    }
+
+    .testimonial-wrapper::-webkit-scrollbar {
+      display: none; /* Hide scrollbar for Chrome, Safari, and Edge */
+    }
+
     /* Testimonial card design */
     .testimonial-box {
-      width: 80%;
-      max-width: 500px;
-      margin: 20px auto;
+      flex: 0 0 auto;
+      width: 90%;
+      max-width: 600px;
+      min-height: 220px; /* Consistent height to avoid shifting */
+      margin: 0 auto; /* Center the box */
       background-color: white;
       border-radius: 10px;
       padding: 20px;
@@ -1034,12 +1052,12 @@ navLinks.forEach((link, index) => {
       flex-direction: column;
       align-items: center;
       text-align: center;
-      overflow: hidden;
+      scroll-snap-align: center;
     }
 
     .testimonial-box:hover {
-      transform: translateY(-10px) scale(1.05);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      transform: translateY(-5px); /* Reduced hover effect */
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* More subtle shadow */
     }
 
     /* Client image */
@@ -1071,6 +1089,64 @@ navLinks.forEach((link, index) => {
       font-size: 16px;
       color: #333;
       line-height: 1.6;
+      display: -webkit-box;
+      -webkit-line-clamp: 6; /* Limits text to 6 lines to avoid overflow */
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Styling for the animation controls */
+    .testimonial-section {
+      position: relative;
+    }
+
+    /* Add dot navigation below testimonials */
+    .dots {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .dot {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin: 0 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .dot.active {
+      background-color: #4CAF50;
+    }
+
+    /* Full-screen width for mobile */
+    @media (max-width: 768px) {
+      .testimonial-box {
+        width: 100%; /* Full-screen width */
+        max-width: 100%; /* Allow full-width */
+        min-height: 250px; /* More height on mobile */
+        margin: 10px 0;
+      }
+
+      .client-img {
+        width: 60px;
+        height: 60px;
+      }
+
+      .testimonial-text {
+        font-size: 14px;
+        -webkit-line-clamp: 8; /* Increase to 8 lines on mobile */
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .testimonial-box {
+        width: 60%;
+        max-width: 800px;
+      }
     }
   </style>
 </head>
@@ -1078,69 +1154,111 @@ navLinks.forEach((link, index) => {
 <body>
   <!-- Testimonial Section -->
   <div class="testimonial-section" id="clients">
-  <div class="testimonial-section">
     <h2>What Our <span>Clients Say</span></h2>
 
-    <!-- Testimonial 1 -->
-    <div class="testimonial-box">
-      <img src="https://i.postimg.cc/L5Lk7VvT/3135715.png" alt="Client" class="client-img">
-      <div class="client-name">Barkley</div>
-      <div class="client-company">Head Of Growth, Luma AI</div>
-      <div class="testimonial-text">
-        "Working with Growwik's team was fantastic. Their campaign reports were clear and detailed, making it easy for us to see the impact."
+    <div class="testimonial-wrapper" id="testimonialWrapper">
+      <!-- Testimonial 1 -->
+      <div class="testimonial-box">
+        <img src="https://i.postimg.cc/L5Lk7VvT/3135715.png" alt="Client" class="client-img">
+        <div class="client-name">Barkley</div>
+        <div class="client-company">Head Of Growth, Luma AI</div>
+        <div class="testimonial-text">
+          "Working with Growwik's team was fantastic. Their campaign reports were clear and detailed, making it easy for us to see the impact."
+        </div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="testimonial-box">
+        <img src="https://i.postimg.cc/L5Lk7VvT/3135715.png" alt="Client" class="client-img">
+        <div class="client-name">Ritesh</div>
+        <div class="client-company">Founder, Hangout-hub</div>
+        <div class="testimonial-text">
+          "The creative campaigns from Growwik drove massive engagement for our brand. Their expertise in meme marketing is top-notch."
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="testimonial-box">
+        <img src="https://i.postimg.cc/L5Lk7VvT/3135715.png" alt="Client" class="client-img">
+        <div class="client-name">Cherry</div>
+        <div class="client-company">Head Of Influencer Marketing, ProductZ</div>
+        <div class="testimonial-text">
+          "Working with Growwik was a game-changer. Their influencer partnerships brought us closer to our audience."
+        </div>
+      </div>
+
+      <!-- Testimonial 4 -->
+      <div class="testimonial-box">
+        <img src="https://i.postimg.cc/L5Lk7VvT/3135715.png" alt="Client" class="client-img">
+        <div class="client-name">Christina CYR</div>
+        <div class="client-company">Marketing Manager, dTOOR</div>
+        <div class="testimonial-text">
+          "Growwik’s team is highly professional and results-driven. They exceeded our expectations."
+        </div>
+      </div>
+
+      <!-- Testimonial 5 -->
+      <div class="testimonial-box">
+        <img src="https://i.postimg.cc/L5Lk7VvT/3135715.png" alt="Client" class="client-img">
+        <div class="client-name">Prashant</div>
+        <div class="client-company">Head of Growth, Punch Manager</div>
+        <div class="testimonial-text">
+          "Their influencer campaigns brought tremendous visibility to our brand. We saw a significant boost in sales."
+        </div>
+      </div>
+
+      <!-- Testimonial 6 -->
+      <div class="testimonial-box">
+        <img src="https://i.postimg.cc/L5Lk7VvT/3135715.png" alt="Client" class="client-img">
+        <div class="client-name">David Johnson</div>
+        <div class="client-company">Head of Marketing, TechCorp</div>
+        <div class="testimonial-text">
+          "The team at Growwik is fantastic. Their attention to detail made all the difference for us."
+        </div>
       </div>
     </div>
 
-    <!-- Testimonial 2 -->
-    <div class="testimonial-box">
-      <img src="https://i.postimg.cc/L5Lk7VvT/3135715.png" alt="Client" class="client-img">
-      <div class="client-name">Ritesh</div>
-      <div class="client-company">Founder, Hangout-hub</div>
-      <div class="testimonial-text">
-        "The creative campaigns from Growwik drove massive engagement for our brand. Their expertise in meme marketing is top-notch."
-      </div>
-    </div>
-
-    <!-- Testimonial 3 -->
-    <div class="testimonial-box">
-      <img src="https://i.postimg.cc/L5Lk7VvT/3135715.png" alt="Client" class="client-img">
-      <div class="client-name">Cherry</div>
-      <div class="client-company">Head Of Influencer Marketing, ProductZ</div>
-      <div class="testimonial-text">
-        "Working with Growwik was a game-changer. Their influencer partnerships brought us closer to our audience."
-      </div>
-    </div>
-
-    <!-- Testimonial 4 -->
-    <div class="testimonial-box">
-      <img src="https://i.postimg.cc/L5Lk7VvT/3135715.png" alt="Client" class="client-img">
-      <div class="client-name">Christina CYR</div>
-      <div class="client-company">Marketing Manager, dTOOR</div>
-      <div class="testimonial-text">
-        "Growwik’s team is highly professional and results-driven. They exceeded our expectations."
-      </div>
-    </div>
-
-    <!-- Testimonial 5 -->
-    <div class="testimonial-box">
-      <img src="https://i.postimg.cc/L5Lk7VvT/3135715.png" alt="Client" class="client-img">
-      <div class="client-name">Prashant</div>
-      <div class="client-company">Head of Growth, Punch Manager</div>
-      <div class="testimonial-text">
-        "Their influencer campaigns brought tremendous visibility to our brand. We saw a significant boost in sales."
-      </div>
-    </div>
-
-    <!-- Testimonial 6 -->
-    <div class="testimonial-box">
-      <img src="https://i.postimg.cc/L5Lk7VvT/3135715.png" alt="Client" class="client-img">
-      <div class="client-name">David Johnson</div>
-      <div class="client-company">Head of Marketing, TechCorp</div>
-      <div class="testimonial-text">
-        "The team at Growwik is fantastic. Their attention to detail made all the difference for us."
-      </div>
+    <!-- Dots for navigation -->
+    <div class="dots">
+      <span class="dot" onclick="currentSlide(0)"></span>
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+      <span class="dot" onclick="currentSlide(4)"></span>
+      <span class="dot" onclick="currentSlide(5)"></span>
     </div>
   </div>
+
+  <script>
+    let currentIndex = 0;
+    const testimonials = document.querySelectorAll('.testimonial-box');
+    const dots = document.querySelectorAll('.dot');
+
+    function showSlides() {
+      testimonials.forEach((testimonial, index) => {
+        testimonial.style.display = 'none';
+      });
+
+      dots.forEach((dot) => dot.classList.remove('active'));
+
+      currentIndex++;
+      if (currentIndex > testimonials.length) {
+        currentIndex = 1;
+      }
+
+      testimonials[currentIndex - 1].style.display = 'block';
+      dots[currentIndex - 1].classList.add('active');
+
+      setTimeout(showSlides, 4000); // Change slide every 4 seconds
+    }
+
+    function currentSlide(index) {
+      currentIndex = index;
+      showSlides();
+    }
+
+    showSlides();
+  </script>
 </body>
 
 </html>
