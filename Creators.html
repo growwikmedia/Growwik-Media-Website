@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creators We Have Worked With</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    /* Reset and Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Navigation Bar Styles */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 15px;
+      background-color: white;
+      border-bottom: 1px solid #ddd;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-button {
+      text-decoration: none;
+      color: #333;
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: bold;
+      transition: transform 0.3s, color 0.3s;
+    }
+
+    .nav-button:hover {
+      transform: scale(1.1);
+      color: lightgreen;
+    }
+
+    .nav-right {
+      margin-right: 30px;
+      font-size: 16px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .navbar img {
+      width: 80px;
+    }
+
+    /* Burger Icon for Mobile View */
+    .burger {
+      display: none;
+      cursor: pointer;
+      z-index: 1100;
+      position: fixed;
+      right: 30px;
+      top: 15px;
+      transform: translateX(0);
+      transition: none;
+    }
+
+    .burger div {
+      width: 25px;
+      height: 3px;
+      background-color: black;
+      margin: 5px;
+      transition: none;
+    }
+
+    .burger.active .line1 {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .burger.active .line2 {
+      opacity: 0;
+    }
+
+    .burger.active .line3 {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    @media (max-width: 768px) {
+      .burger {
+        display: block;
+      }
+
+      .navbar {
+        padding: 0 10px;
+      }
+
+      .nav-buttons {
+        display: none;
+      }
+
+      .navbar img {
+        width: 70px;
+      }
+    }
+
+    /* Fullscreen Overlay for Mobile View */
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .overlay.active {
+      display: flex;
+    }
+
+    .overlay-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+      text-align: center;
+      font-size: 22px;
+    }
+
+    .overlay-menu a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      padding: 10px;
+      transition: transform 0.3s, color 0.3s, background-color 0.3s;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .overlay-menu a:hover {
+      transform: scale(1.2);
+      color: white;
+      background-color: #4CAF50;
+      border-radius: 5px;
+    }
+
+    /* Creators Section */
+    .creators-section {
+      background: linear-gradient(135deg, #a8e6cf, #77bfa3);
+      padding: 100px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .creators-title {
+      font-size: 38px;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 40px;
+    }
+
+    .creators-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .creator-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .creator-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid white;
+      margin-bottom: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icon {
+      width: 28px;
+      height: 28px;
+      background-color: white;
+      padding: 8px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .social-icon img {
+      width: 24px;
+      height: 24px;
+    }
+
+    .creator-card:hover .creator-img,
+    .creator-card:active .creator-img {
+      transform: scale(1.1);
+    }
+
+    .creator-card:hover .social-icon,
+    .creator-card:active .social-icon {
+      transform: scale(1.1);
+    }
+
+    .creator-name {
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 5px;
+    }
+
+    .creator-username {
+      font-size: 14px;
+      color: #f0f0f0;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .creators-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .creators-container {
+        grid-template-columns: 1fr;
+      }
+
+      .creator-card {
+        width: 100%;
+        max-width: 300px;
+        margin: 10px auto;
+      }
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 60px;
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .footer p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .footer a {
+      color: #007f5f;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Fixed Navigation Bar -->
+  <div class="navbar">
+    <img src="https://i.imgur.com/lGkc363.png" alt="Logo">
+    <div class="nav-buttons">
+      <a class="nav-button" href="index.html">Home</a>
+      <a class="nav-button" href="index.html#about-us">About Us</a>
+      <a class="nav-button" href="index.html#services">Our Services</a>
+      <a class="nav-button" href="index.html#contact-form">Contact Us</a>
+    </div>
+    <div class="nav-right"></div>
+    <div class="burger" id="burger">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
+  </div>
+
+  <!-- Fullscreen Overlay Menu -->
+  <div class="overlay" id="overlay">
+    <div class="overlay-menu">
+      <a href="index.html">Home</a>
+      <a href="index.html#about-us">About Us</a>
+      <a href="index.html#services">Our Services</a>
+      <a href="index.html#contact-form">Contact Us</a>
+      <a href="#">Case Studies</a>
+    </div>
+  </div>
+
+  <!-- Creators Section -->
+  <section class="creators-section" id="Creators">
+    <h2 class="creators-title">Creators</h2>
+    <div class="creators-container">
+      <div class="creator-card">
+        <img src="https://i.postimg.cc/D0PJ6NFS/GYan-THropy.png" alt="Rakesh Kumar" class="creator-img">
+        <div class="creator-name">Rakesh Kumar</div>
+        <div class="creator-username">@gyantherapy</div>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/gyantherapy" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/gJcPR6xv/ube.png" alt="Instagram">
+          </a>
+          <a href="https://youtube.com/@gyantherapy" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/wBVC6Tw3/ube-yt.png" alt="YouTube">
+          </a>
+        </div>
+      </div>
+
+      <div class="creator-card">
+        <img src="https://i.postimg.cc/Kj8xXpBk/lakshay.png" alt="Lakshay Chaudhary" class="creator-img">
+        <div class="creator-name">Lakshay Chaudhary</div>
+        <div class="creator-username">@lakshayonly</div>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/lakshayonly" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/gJcPR6xv/ube.png" alt="Instagram">
+          </a>
+          <a href="https://youtube.com/@lakshaychaudhary" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/wBVC6Tw3/ube-yt.png" alt="YouTube">
+          </a>
+        </div>
+      </div>
+
+      <div class="creator-card">
+        <img src="https://via.placeholder.com/160" alt="Creator Name" class="creator-img">
+        <div class="creator-name">Creator Name 3</div>
+        <div class="creator-username">@username3</div>
+        <div class="social-icons">
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/gJcPR6xv/ube.png" alt="Instagram">
+          </a>
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/wBVC6Tw3/ube-yt.png" alt="YouTube">
+          </a>
+        </div>
+      </div>
+
+      <div class="creator-card">
+        <img src="https://via.placeholder.com/160" alt="Creator Name" class="creator-img">
+        <div class="creator-name">Creator Name 4</div>
+        <div class="creator-username">@username4</div>
+        <div class="social-icons">
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/gJcPR6xv/ube.png" alt="Instagram">
+          </a>
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/wBVC6Tw3/ube-yt.png" alt="YouTube">
+          </a>
+        </div>
+      </div>
+
+      <div class="creator-card">
+        <img src="https://via.placeholder.com/160" alt="Creator Name" class="creator-img">
+        <div class="creator-name">Creator Name 5</div>
+        <div class="creator-username">@username5</div>
+        <div class="social-icons">
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/gJcPR6xv/ube.png" alt="Instagram">
+          </a>
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/wBVC6Tw3/ube-yt.png" alt="YouTube">
+          </a>
+        </div>
+      </div>
+    
+       <div class="creator-card">
+        <img src="https://via.placeholder.com/160" alt="Creator Name" class="creator-img">
+        <div class="creator-name">Creator Name 5</div>
+        <div class="creator-username">@username5</div>
+        <div class="social-icons">
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/gJcPR6xv/ube.png" alt="Instagram">
+          </a>
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/wBVC6Tw3/ube-yt.png" alt="YouTube">
+          </a>
+        </div>
+      </div>
+      
+       <div class="creator-card">
+        <img src="https://via.placeholder.com/160" alt="Creator Name" class="creator-img">
+        <div class="creator-name">Creator Name 5</div>
+        <div class="creator-username">@username5</div>
+        <div class="social-icons">
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/gJcPR6xv/ube.png" alt="Instagram">
+          </a>
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/wBVC6Tw3/ube-yt.png" alt="YouTube">
+          </a>
+        </div>
+      </div>
+      
+       <div class="creator-card">
+        <img src="https://via.placeholder.com/160" alt="Creator Name" class="creator-img">
+        <div class="creator-name">Creator Name 5</div>
+        <div class="creator-username">@username5</div>
+        <div class="social-icons">
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/gJcPR6xv/ube.png" alt="Instagram">
+          </a>
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/wBVC6Tw3/ube-yt.png" alt="YouTube">
+          </a>
+        </div>
+      </div>
+      
+       <div class="creator-card">
+        <img src="https://via.placeholder.com/160" alt="Creator Name" class="creator-img">
+        <div class="creator-name">Creator Name 5</div>
+        <div class="creator-username">@username5</div>
+        <div class="social-icons">
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/gJcPR6xv/ube.png" alt="Instagram">
+          </a>
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/wBVC6Tw3/ube-yt.png" alt="YouTube">
+          </a>
+        </div>
+      </div>
+      
+       <div class="creator-card">
+        <img src="https://via.placeholder.com/160" alt="Creator Name" class="creator-img">
+        <div class="creator-name">Creator Name 5</div>
+        <div class="creator-username">@username5</div>
+        <div class="social-icons">
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/gJcPR6xv/ube.png" alt="Instagram">
+          </a>
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/wBVC6Tw3/ube-yt.png" alt="YouTube">
+          </a>
+        </div>
+      </div>
+      
+       <div class="creator-card">
+        <img src="https://via.placeholder.com/160" alt="Creator Name" class="creator-img">
+        <div class="creator-name">Creator Name 5</div>
+        <div class="creator-username">@username5</div>
+        <div class="social-icons">
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/gJcPR6xv/ube.png" alt="Instagram">
+          </a>
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/wBVC6Tw3/ube-yt.png" alt="YouTube">
+          </a>
+        </div>
+      </div>
+      
+       <div class="creator-card">
+        <img src="https://via.placeholder.com/160" alt="Creator Name" class="creator-img">
+        <div class="creator-name">Creator Name 5</div>
+        <div class="creator-username">@username5</div>
+        <div class="social-icons">
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/gJcPR6xv/ube.png" alt="Instagram">
+          </a>
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/wBVC6Tw3/ube-yt.png" alt="YouTube">
+          </a>
+        </div>
+      </div>
+      
+       <div class="creator-card">
+        <img src="https://via.placeholder.com/160" alt="Creator Name" class="creator-img">
+        <div class="creator-name">Creator Name 5</div>
+        <div class="creator-username">@username5</div>
+        <div class="social-icons">
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/gJcPR6xv/ube.png" alt="Instagram">
+          </a>
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/wBVC6Tw3/ube-yt.png" alt="YouTube">
+          </a>
+        </div>
+      </div>
+      
+       <div class="creator-card">
+        <img src="https://via.placeholder.com/160" alt="Creator Name" class="creator-img">
+        <div class="creator-name">Creator Name 5</div>
+        <div class="creator-username">@username5</div>
+        <div class="social-icons">
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/gJcPR6xv/ube.png" alt="Instagram">
+          </a>
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/wBVC6Tw3/ube-yt.png" alt="YouTube">
+          </a>
+        </div>
+      </div>
+      
+       <div class="creator-card">
+        <img src="https://via.placeholder.com/160" alt="Creator Name" class="creator-img">
+        <div class="creator-name">Creator Name 5</div>
+        <div class="creator-username">@username5</div>
+        <div class="social-icons">
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/gJcPR6xv/ube.png" alt="Instagram">
+          </a>
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/wBVC6Tw3/ube-yt.png" alt="YouTube">
+          </a>
+        </div>
+      </div>
+      
+       <div class="creator-card">
+        <img src="https://via.placeholder.com/160" alt="Creator Name" class="creator-img">
+        <div class="creator-name">Creator Name 5</div>
+        <div class="creator-username">@username5</div>
+        <div class="social-icons">
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/gJcPR6xv/ube.png" alt="Instagram">
+          </a>
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/wBVC6Tw3/ube-yt.png" alt="YouTube">
+          </a>
+        </div>
+      </div>
+      
+       <div class="creator-card">
+        <img src="https://via.placeholder.com/160" alt="Creator Name" class="creator-img">
+        <div class="creator-name">Creator Name 5</div>
+        <div class="creator-username">@username5</div>
+        <div class="social-icons">
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/gJcPR6xv/ube.png" alt="Instagram">
+          </a>
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/wBVC6Tw3/ube-yt.png" alt="YouTube">
+          </a>
+        </div>
+      </div>
+      
+       <div class="creator-card">
+        <img src="https://via.placeholder.com/160" alt="Creator Name" class="creator-img">
+        <div class="creator-name">Creator Name 5</div>
+        <div class="creator-username">@username5</div>
+        <div class="social-icons">
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/gJcPR6xv/ube.png" alt="Instagram">
+          </a>
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/wBVC6Tw3/ube-yt.png" alt="YouTube">
+          </a>
+        </div>
+      </div>
+      
+       <div class="creator-card">
+        <img src="https://via.placeholder.com/160" alt="Creator Name" class="creator-img">
+        <div class="creator-name">Creator Name 5</div>
+        <div class="creator-username">@username5</div>
+        <div class="social-icons">
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/gJcPR6xv/ube.png" alt="Instagram">
+          </a>
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/wBVC6Tw3/ube-yt.png" alt="YouTube">
+          </a>
+        </div>
+      </div>
+      
+       <div class="creator-card">
+        <img src="https://via.placeholder.com/160" alt="Creator Name" class="creator-img">
+        <div class="creator-name">Creator Name 5</div>
+        <div class="creator-username">@username5</div>
+        <div class="social-icons">
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/gJcPR6xv/ube.png" alt="Instagram">
+          </a>
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/wBVC6Tw3/ube-yt.png" alt="YouTube">
+          </a>
+        </div>
+      </div>
+      
+       <div class="creator-card">
+        <img src="https://via.placeholder.com/160" alt="Creator Name" class="creator-img">
+        <div class="creator-name">Creator Name 5</div>
+        <div class="creator-username">@username5</div>
+        <div class="social-icons">
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/gJcPR6xv/ube.png" alt="Instagram">
+          </a>
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/wBVC6Tw3/ube-yt.png" alt="YouTube">
+          </a>
+        </div>
+      </div>
+      
+       <div class="creator-card">
+        <img src="https://via.placeholder.com/160" alt="Creator Name" class="creator-img">
+        <div class="creator-name">Creator Name 5</div>
+        <div class="creator-username">@username5</div>
+        <div class="social-icons">
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/gJcPR6xv/ube.png" alt="Instagram">
+          </a>
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/wBVC6Tw3/ube-yt.png" alt="YouTube">
+          </a>
+        </div>
+      </div>
+      
+       <div class="creator-card">
+        <img src="https://via.placeholder.com/160" alt="Creator Name" class="creator-img">
+        <div class="creator-name">Creator Name 5</div>
+        <div class="creator-username">@username5</div>
+        <div class="social-icons">
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/gJcPR6xv/ube.png" alt="Instagram">
+          </a>
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/wBVC6Tw3/ube-yt.png" alt="YouTube">
+          </a>
+        </div>
+      </div>
+      
+       <div class="creator-card">
+        <img src="https://via.placeholder.com/160" alt="Creator Name" class="creator-img">
+        <div class="creator-name">Creator Name 5</div>
+        <div class="creator-username">@username5</div>
+        <div class="social-icons">
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/gJcPR6xv/ube.png" alt="Instagram">
+          </a>
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/wBVC6Tw3/ube-yt.png" alt="YouTube">
+          </a>
+        </div>
+      </div>
+      
+       <div class="creator-card">
+        <img src="https://via.placeholder.com/160" alt="Creator Name" class="creator-img">
+        <div class="creator-name">Creator Name 5</div>
+        <div class="creator-username">@username5</div>
+        <div class="social-icons">
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/gJcPR6xv/ube.png" alt="Instagram">
+          </a>
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/wBVC6Tw3/ube-yt.png" alt="YouTube">
+          </a>
+        </div>
+      </div>
+      
+       <div class="creator-card">
+        <img src="https://via.placeholder.com/160" alt="Creator Name" class="creator-img">
+        <div class="creator-name">Creator Name 5</div>
+        <div class="creator-username">@username5</div>
+        <div class="social-icons">
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/gJcPR6xv/ube.png" alt="Instagram">
+          </a>
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/wBVC6Tw3/ube-yt.png" alt="YouTube">
+          </a>
+        </div>
+      </div>
+      
+       <div class="creator-card">
+        <img src="https://via.placeholder.com/160" alt="Creator Name" class="creator-img">
+        <div class="creator-name">Creator Name 5</div>
+        <div class="creator-username">@username5</div>
+        <div class="social-icons">
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/gJcPR6xv/ube.png" alt="Instagram">
+          </a>
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/wBVC6Tw3/ube-yt.png" alt="YouTube">
+          </a>
+        </div>
+      </div>
+      
+       <div class="creator-card">
+        <img src="https://via.placeholder.com/160" alt="Creator Name" class="creator-img">
+        <div class="creator-name">Creator Name 5</div>
+        <div class="creator-username">@username5</div>
+        <div class="social-icons">
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/gJcPR6xv/ube.png" alt="Instagram">
+          </a>
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/wBVC6Tw3/ube-yt.png" alt="YouTube">
+          </a>
+        </div>
+      </div>
+      
+       <div class="creator-card">
+        <img src="https://via.placeholder.com/160" alt="Creator Name" class="creator-img">
+        <div class="creator-name">Creator Name 5</div>
+        <div class="creator-username">@username5</div>
+        <div class="social-icons">
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/gJcPR6xv/ube.png" alt="Instagram">
+          </a>
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/wBVC6Tw3/ube-yt.png" alt="YouTube">
+          </a>
+        </div>
+      </div>
+      
+       <div class="creator-card">
+        <img src="https://via.placeholder.com/160" alt="Creator Name" class="creator-img">
+        <div class="creator-name">Creator Name 5</div>
+        <div class="creator-username">@username6</div>
+        <div class="social-icons">
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/gJcPR6xv/ube.png" alt="Instagram">
+          </a>
+          <a href="#" target="_blank" class="social-icon">
+            <img src="https://i.postimg.cc/wBVC6Tw3/ube-yt.png" alt="YouTube">
+          </a>
+        </div>
+      </div>
+  </section>
+
+  <!-- Footer Section -->
+  <div class="footer">
+    <p>&copy; 2024 Growwik Media. All Rights Reserved.</p>
+    <p>Contact us at: <a href="mailto:punith@growwik.com">punith@growwik.com</a> | Phone: +91-9741016324</p>
+    <p>Bangalore, Karnataka, India</p>
+  </div>
+
+  <script>
+    // Toggle Burger Menu and Overlay
+    const burger = document.getElementById('burger');
+    const overlay = document.getElementById('overlay');
+    const navLinks = document.querySelectorAll('.nav-buttons a');
+
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('active');
+      overlay.classList.toggle('active');
+      burger.style.position = 'fixed';
+      burger.style.top = '15px';
+      burger.style.right = '20px';
+    });
+
+    // Close the overlay when an option is clicked
+    const overlayLinks = document.querySelectorAll('.overlay-menu a');
+    overlayLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        overlay.classList.remove('active');
+        burger.classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
