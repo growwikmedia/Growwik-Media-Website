@@ -48,6 +48,8 @@
 
         .nav-buttons {
             display: flex;
+            justify-content: center;
+          flex-grow: 1; /* This allows the buttons to take up space in the middle */
             gap: 20px;
         }
 
@@ -73,10 +75,9 @@
         .navbar img {
             width: 70px;
         }
-
-        /* Burger Icon for Mobile View */
+           /* Burger Icon for Mobile View */
         .burger {
-            display: none;
+            display: block;
             cursor: pointer;
         }
 
