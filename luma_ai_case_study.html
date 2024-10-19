@@ -28,7 +28,7 @@
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 10px 0;
         }
 
         /* Slimmer Navigation Bar */
@@ -48,13 +48,12 @@
 
         .nav-buttons {
             display: flex;
-            gap: 20px;
+            gap: 15px;
         }
 
         .nav-button {
             text-decoration: none;
             color: #333;
-            font-family: 'Poppins', sans-serif;
             font-size: 16px;
             font-weight: bold;
             transition: transform 0.3s, color 0.3s;
@@ -65,26 +64,14 @@
             color: lightgreen;
         }
 
-        .nav-right {
-            margin-right: 30px;
-            font-size: 16px;
-            font-family: 'Poppins', sans-serif;
-        }
-
         .navbar img {
-            width: 80px;
+            width: 70px;
         }
 
         /* Burger Icon for Mobile View */
         .burger {
             display: none;
             cursor: pointer;
-            z-index: 1100;
-            position: fixed;
-            right: 30px;
-            top: 15px;
-            transform: translateX(0);
-            transition: none;
         }
 
         .burger div {
@@ -92,7 +79,6 @@
             height: 3px;
             background-color: black;
             margin: 5px;
-            transition: none;
         }
 
         .burger.active .line1 {
@@ -113,16 +99,12 @@
                 display: block;
             }
 
-            .navbar {
-                padding: 0 10px;
+            .navbar img {
+                width: 60px;
             }
 
             .nav-buttons {
                 display: none;
-            }
-
-            .navbar img {
-                width: 70px;
             }
         }
 
@@ -135,7 +117,6 @@
             width: 100%;
             height: 100vh;
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
             z-index: 1000;
             justify-content: center;
             align-items: center;
@@ -149,10 +130,9 @@
         .overlay-menu {
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            width: 100%;
+            gap: 15px;
             text-align: center;
-            font-size: 22px;
+            font-size: 20px;
         }
 
         .overlay-menu a {
@@ -161,11 +141,10 @@
             font-weight: bold;
             padding: 10px;
             transition: transform 0.3s, color 0.3s, background-color 0.3s;
-            font-family: 'Poppins', sans-serif;
         }
 
         .overlay-menu a:hover {
-            transform: scale(1.2);
+            transform: scale(1.1);
             color: white;
             background-color: #4CAF50;
             border-radius: 5px;
@@ -200,181 +179,150 @@
             animation-delay: 0.6s;
         }
 
-        .slide-in-left.delay-4 {
-            animation-delay: 0.8s;
-        }
-
-        .slide-in-left.delay-5 {
-            animation-delay: 1s;
-        }
-
         /* Header */
         .header {
             background-color: #ffffff;
-            padding: 100px 20px 20px; /* Added top padding to accommodate the fixed navbar */
+            padding: 100px 20px 20px;
             text-align: center;
-            border-bottom: 3px solid #007f5f;
+            border-bottom: 2px solid #007f5f;
         }
 
         .header h1 {
-            font-size: 48px;
+            font-size: 36px;
             color: #333;
             font-weight: bold;
+            margin-bottom: 10px; /* Proper gap between title and text */
         }
 
         .header p {
-            font-size: 24px;
+            font-size: 20px;
             color: #007f5f;
-            margin-top: 10px;
         }
 
         /* Case Study Content */
         .case-study-section {
-            margin-top: 40px;
+            margin-top: 10px;
+            padding-bottom: 5px; /* Gap between sections */
         }
 
         .case-study-section h2 {
             font-size: 36px;
+            font-weight: bold;
+            text-align: center;
             color: #007f5f;
-            margin-bottom: 20px;
+            margin-bottom: 10px; /* Proper gap between title and content */
         }
 
         .case-study-section p {
-            font-size: 18px;
-            line-height: 1.6;
+            font-size: 22px;
+            line-height: 1.5;
             color: #666;
         }
 
-        .case-study-section ul {
-            margin-top: 20px;
-            list-style-type: disc;
-            padding-left: 20px;
-        }
-
-        .case-study-section ul li {
-            font-size: 18px;
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        /* Statistics Section */
-        .statistics, .video-gallery {
+        /* Campaign Outcomes Section */
+        .outcomes-grid {
             display: flex;
-            justify-content: space-between;
-            gap: 20px;
             flex-wrap: wrap;
+            gap: 15px;
+            justify-content: space-between;
         }
 
-        .stat-box, .video-item {
-            flex: 1 1 calc(25% - 20px);
-            min-width: 200px;
-        }
-
-        .stat-box {
-            background-color: #ffffff;
+        .outcome-box {
+            background-color: #f0f0f0;
             border-radius: 8px;
-            padding: 20px;
+            padding: 10px;
+            width: calc(25% - 15px);
             text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .stat-box:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        .outcome-box h4 {
+            font-size: 1rem;
+            color: #007f5f;
+            margin-bottom: 5px;
         }
 
-        .stat-box h3 {
+        .outcome-box p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .outcome-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .outcome-box {
+                width: calc(50% - 15px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .outcome-box {
+                width: 100%;
+            }
+        }
+
+        /* Video Section */
+        .video-section {
+            margin-top: 30px;
+            padding-bottom: 20px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+      
+        .video-section h2 {
             font-size: 28px;
             color: #007f5f;
             margin-bottom: 10px;
         }
 
-        .stat-box p {
-            font-size: 24px;
-            color: #333;
-            font-weight: bold;
+        .video-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
-        /* Video Section */
-        .video-section {
-            margin-top: 40px;
+        .video-gallery blockquote {
+            flex: 1 1 calc(30% - 15px);
+            max-width: 300px;
+            margin: 0;
         }
 
-        .video-section h2 {
-            font-size: 32px;
-            color: #007f5f;
-            margin-bottom: 20px;
-            text-align: center;
+        /* Responsive layout for smaller screens */
+        @media (max-width: 768px) {
+            .video-gallery blockquote {
+                flex: 1 1 calc(50% - 15px);
+            }
         }
 
-        .video-item {
-            background-color: #ffffff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+        @media (max-width: 480px) {
+            .video-gallery blockquote {
+                flex: 1 1 100%;
+            }
         }
 
-        .video-item:hover {
-            transform: scale(1.05);
-        }
-
-        .video-item iframe {
-            width: 100%;
-            height: 200px;
-            border: none;
-        }
-
-        /* Call to Action */
-        .cta-section {
-            margin-top: 60px;
-            padding: 40px;
-            background-color: #007f5f;
-            color: white;
-            text-align: center;
-            border-radius: 8px;
-        }
-
-        .cta-section h2 {
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
-
-        .cta-section p {
-            font-size: 20px;
-            margin-bottom: 30px;
-        }
-
-        .cta-section a {
-            display: inline-block;
-            padding: 15px 30px;
-            background-color: white;
-            color: #007f5f;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .cta-section a:hover {
-            background-color: #f1f1f1;
-            transform: scale(1.05);
-        }
-
-        /* Footer */
+        /* Footer Section */
         .footer {
-            margin-top: 60px;
+            margin-top: 40px;
             background-color: #333;
             color: white;
             text-align: center;
-            padding: 40px 20px;
+            padding: 30px 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .footer p {
-            font-size: 16px;
-            line-height: 1.6;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 8px;
         }
 
         .footer a {
@@ -387,12 +335,50 @@
             text-decoration: underline;
         }
 
-        /* Responsive Design */
+        /* Call to Action Section */
+        .cta-section {
+            margin-top: 40px;
+            padding: 30px;
+            background-color: #007f5f;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .cta-section h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .cta-section a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: white;
+            color: #007f5f;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .cta-section a:hover {
+            background-color: #f1f1f1;
+            transform: scale(1.05);
+        }
+
+        /* Responsive adjustments for footer */
         @media (max-width: 768px) {
-            .stat-box, .video-item {
-                flex: 1 1 100%;
+            .footer {
+                padding: 15px;
             }
         }
+
     </style>
 </head>
 <body>
@@ -405,9 +391,6 @@
             <a class="nav-button" href="index.html#about-us">About Us</a>
             <a class="nav-button" href="index.html#services">Our Services</a>
             <a class="nav-button" href="index.html#contact-form">Contact Us</a>
-        </div>
-        <div class="nav-right">
-            
         </div>
         <div class="burger" id="burger">
             <div class="line1"></div>
@@ -437,54 +420,99 @@
     <div class="container">
         <!-- Objective Section -->
         <div class="case-study-section slide-in-left delay-2">
-            <h2>Objective</h2>
-            <p>Luma AI aimed to revolutionize AI-driven solutions by utilizing influencers and strategic partnerships to expand their reach and engage their audience.</p>
+            <h2>Overview</h2>
+            <p>Luma AI partnered with Growwik to drive awareness and downloads for their revolutionary 3D content platform. Using AI-powered video processing, Luma converts regular video footage into interactive 3D scenes. With keyframe features, users can simulate drone-like shots, opening new creative possibilities. This campaign aimed to showcase these innovative features, grow the user base, and establish global brand recognition for Luma AI.</p>
         </div>
 
-        <!-- Campaign Overview Section -->
+        <!-- Campaign Objective Section -->
         <div class="case-study-section slide-in-left delay-3">
-            <h2>Campaign Overview</h2>
-            <p>We partnered with leading AI influencers to demonstrate Luma AI's cutting-edge technology. By creating in-depth tutorials, behind-the-scenes content, and product walkthroughs, influencers were able to highlight the unique capabilities of the AI tools.</p>
+            <h2>Objective</h2>
+            <p>This campaign aimed to showcase these innovative features, grow the user base, and establish global brand recognition for Luma AI.</p>
         </div>
 
-        <!-- Statistics Section -->
-        <div class="statistics slide-in-left delay-4">
-            <div class="stat-box">
-                <h3>Total Reach</h3>
-                <p>4.8 Million</p>
-            </div>
-            <div class="stat-box">
-                <h3>Total Engagements</h3>
-                <p>120K+</p>
-            </div>
-            <div class="stat-box">
-                <h3>Influencer Collaborations</h3>
-                <p>25+</p>
+        <!-- Campaign Outcomes Section -->
+        <div class="case-study-section slide-in-left delay-4">
+            <h2>Execution Highlights</h2>
+            <div class="outcomes-grid">
+                <div class="outcome-box">
+                    <h4>126M+ Views</h4>
+                    <p>Instagram</p>
+                </div>
+                <div class="outcome-box">
+                    <h4>100K Followers</h4>
+                    <p>Organic Growth</p>
+                </div>
+                <div class="outcome-box">
+                    <h4>400K Downloads</h4>
+                    <p>App Installs</p>
+                </div>
+                <div class="outcome-box">
+                    <h4>200M+ Views</h4>
+                    <p>Total (Organic + Sponsored)</p>
+                </div>
             </div>
         </div>
 
-        <!-- Featured Influencer Reels -->
-        <div class="video-section slide-in-left delay-5">
+        <!-- Challenges Section -->
+        <div class="case-study-section slide-in-left delay-5">
+            <h2>The Challenges</h2>
+            <p>Luma AI faced the challenge of standing out in an increasingly crowded AI landscape. The platform needed to demonstrate the value of its advanced 3D modeling tools while driving significant organic growth, including app downloads and social media engagement, without relying on paid advertising.</p>
+        </div>
+
+        <!-- Approach Section -->
+        <div class="case-study-section slide-in-left delay-6">
+            <h2>Our Approach</h2>
+            <p>Growwik collaborated with 35 influencers across different sectors to showcase Luma’s unique tools through engaging content. These influencers used Luma’s keyframe features to simulate drone-like shots, offering new ways for creators to tell their stories through interactive 3D models.</p>
+        </div>
+
+        <!-- Impact and Virality Section -->
+        <div class="case-study-section slide-in-left delay-7">
+            <h2>Impact and Virality</h2>
+            <p>This campaign helped Luma AI gain global recognition. Many influencers, including CSK cricket team and top food bloggers, used the platform to create 3D scenes. The viral success of the campaign established Luma AI as a key player in 3D content creation.</p>
+        </div>
+
+        <!-- Featured Reels Section -->
+        <div class="video-section slide-in-left delay-8">
             <h2>Featured Influencer Reels</h2>
             <div class="video-gallery">
-                <!-- Reel 1 -->
-                <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/CzLN8uFLy8T/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
-                <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/C1MxNWYLJN_/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
-                <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/C365LH-pzcR/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C1yhRo7PWLb/" data-instgrm-version="14"></blockquote>
+                <script async src="//www.instagram.com/embed.js"></script>
+
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C1WJBU9qdmF/" data-instgrm-version="14"></blockquote>
+                <script async src="//www.instagram.com/embed.js"></script>
+
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C1MxNWYLJN_/" data-instgrm-version="14"></blockquote>
+                <script async src="//www.instagram.com/embed.js"></script>
+              
+               <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/CzLN8uFLy8T/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
+<script async src="//www.instagram.com/embed.js"></script>
+
+              
+              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/Cn7TCdHJ2i6/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
+<script async src="//www.instagram.com/embed.js"></script>
+
+
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C365LH-pzcR/" data-instgrm-version="14"></blockquote>
+                <script async src="//www.instagram.com/embed.js"></script>
             </div>
         </div>
 
-        <!-- Call to Action Section -->
-        <div class="cta-section slide-in-left delay-6">
-            <h2>Learn More About Luma AI</h2>
-            <p>Contact us to explore how AI-driven solutions can elevate your brand's visibility.</p>
-            <a href="index.html#contact-form">Get in Touch</a>
+        <!-- Conclusion Section -->
+        <div class="case-study-section slide-in-left delay-9">
+            <h2>Conclusion</h2>
+            <p>The collaboration between Luma AI and Growwik proved to be significant in the company’s journey. By combining influencer marketing with creative content strategies, the campaign delivered exceptional results—building brand awareness, driving downloads, and establishing Luma AI’s name globally.</p>
         </div>
+    </div>
 
+    <!-- Call to Action Section -->
+    <div class="cta-section slide-in-left delay-10">
+        <h2>Learn More About Luma AI</h2>
+        <p>Contact us to explore how AI-driven solutions can elevate your brand's visibility.</p>
+        <a href="index.html#contact-form">Get in Touch</a>
     </div>
 
     <!-- Footer Section -->
-    <div class="footer slide-in-left delay-7">
+    <div class="footer">
         <p>&copy; 2024 Growwik Media. All Rights Reserved.</p>
         <p>Contact us at: <a href="mailto:contact@growwik.com">contact@growwik.com</a> | Phone: +91-7037298470</p>
         <p>No. 47, 4th Cross, 2nd Main, HSR Layout, Sector 7, Bangalore, Karnataka - 560102</p>
